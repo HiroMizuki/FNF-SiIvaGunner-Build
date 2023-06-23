@@ -1,0 +1,194 @@
+{
+	"storyName": "Dad Battle",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Bopeebo",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Bopeebo (Beta Mix)",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Bopeebo (Extended Version)",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Bopeebo (In-Game Version)",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Bopeebo (Itch.io Build)",
+			"scatman-john",
+			[
+				155,
+				155,
+				155
+			]
+		],
+		[
+			"Bopeebo (Newgrounds Build)",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Bopeebo (Short Version)",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Fresh",
+			"red-jerma",
+			[
+				226,
+				0,
+				0
+			]
+		],
+		[
+			"Fresh (Alternate Version)",
+			"bomberman",
+			[
+				229,
+				55,
+				120
+			]
+		],
+		[
+			"Fresh (In-Game Version)",
+			"big-chungus",
+			[
+				79,
+				79,
+				79
+			]
+		],
+		[
+			"Fresh (Itch.io Build)",
+			"bus",
+			[
+				199,
+				79,
+				79
+			]
+		],
+		[
+			"Fresh (OST Version)",
+			"double-dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Fresh (Poop Version)",
+			"king-harkinian",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Fresh (Vocal Mix)",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Fresh (Week 7 Update)",
+			"plok",
+			[
+				222,
+				73,
+				73
+			]
+		],
+		[
+			"Dad Battle",
+			"dad",
+			[
+				146,
+				113,
+				253
+			]
+		],
+		[
+			"Dad Battle (In-Game Mix)",
+			"invisible",
+			[
+				120,
+				120,
+				120
+			]
+		],
+		[
+			"Dad Battle (In-Game Version)",
+			"rapper-mario",
+			[
+				187,
+				77,
+				99
+			]
+		],
+		[
+			"Dad Battle (JP Version)",
+			"ragyo",
+			[
+				255,
+				230,
+				230
+			]
+		]
+	],
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"songsList": ["Bopeebo", "Fresh", "Dad Battle"],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Week 1"
+}

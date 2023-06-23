@@ -1,0 +1,35 @@
+{
+	"storyName": "",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Tutorial",
+			"gf",
+			[
+				165,
+				0,
+				77
+			]
+		],
+		[
+			"Tutorial (Beta Mix)",
+			"lady",
+			[
+				255,
+				133,
+				0
+			]
+		]
+	],
+	"songsList": ["Tutorial"],
+	"hideStoryMode": false,
+	"weekName": "Tutorial"
+}

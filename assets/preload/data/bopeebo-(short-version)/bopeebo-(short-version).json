@@ -1,0 +1,212 @@
+{
+	"song": {
+		"player1": "bf",
+		"events": [
+			[
+				4200,
+				[
+					[
+						"Hey!",
+						"BF",
+						""
+					]
+				]
+			],
+			[
+				7800,
+				[
+					[
+						"Add Camera Zoom",
+						"1",
+						""
+					]
+				]
+			],
+			[
+				8100,
+				[
+					[
+						"Screen Shake",
+						"4, 0.3",
+						"4, 0.07"
+					]
+				]
+			]
+		],
+		"gfVersion": "gf",
+		"notes": [
+			{
+				"sectionNotes": [
+					[
+						56.25,
+						2,
+						0
+					],
+					[
+						667.5,
+						0,
+						450
+					],
+					[
+						1282.5,
+						3,
+						450
+					]
+				],
+				"lengthInSteps": 16,
+				"mustHitSection": false
+			},
+			{
+				"sectionNotes": [
+					[
+						2456.25,
+						2,
+						0
+					],
+					[
+						3067.5,
+						0,
+						450
+					],
+					[
+						3682.5,
+						3,
+						450
+					]
+				],
+				"lengthInSteps": 16,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [
+					[
+						4856.25,
+						2,
+						0
+					],
+					[
+						6056.25,
+						3,
+						0
+					],
+					[
+						6356.25,
+						1,
+						0
+					],
+					[
+						6956.25,
+						3,
+						0
+					],
+					[
+						5471.25,
+						0,
+						450
+					]
+				],
+				"lengthInSteps": 16,
+				"mustHitSection": false
+			},
+			{
+				"sectionNotes": [
+					[
+						7256.25,
+						5,
+						0
+					],
+					[
+						7575,
+						4,
+						0
+					],
+					[
+						7875,
+						5,
+						0
+					],
+					[
+						8100,
+						4,
+						2437.5
+					],
+					[
+						8100,
+						5,
+						2437.5
+					],
+					[
+						8100,
+						6,
+						2437.5
+					],
+					[
+						8100,
+						7,
+						2437.5
+					],
+					[
+						8287.5,
+						3,
+						2250
+					],
+					[
+						8287.5,
+						2,
+						2250
+					],
+					[
+						8287.5,
+						1,
+						2250
+					],
+					[
+						8287.5,
+						0,
+						2250
+					]
+				],
+				"lengthInSteps": 16,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 100,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 100,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 100,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			}
+		],
+		"player2": "dad",
+		"player3": null,
+		"song": "Bopeebo (Short Version)",
+		"stage": "stage",
+		"needsVoices": true,
+		"validScore": true,
+		"bpm": 100,
+		"speed": 1.6
+	}
+}

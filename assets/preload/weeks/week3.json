@@ -1,0 +1,64 @@
+{
+	"songs": [
+		[
+			"Pico",
+			"pico-igor",
+			[
+				101,
+				192,
+				235
+			]
+		],
+		[
+			"Pico (In-Game Version)",
+			"grandpa",
+			[
+				186,
+				186,
+				186
+			]
+		],
+		[
+			"Pico (OST Version)",
+			"rabbid",
+			[
+				186,
+				186,
+				186
+			]
+		],
+		[
+			"Philly Nice",
+			"pico",
+			[
+				148,
+				22,
+				83
+			]
+		],
+		[
+			"Blammed",
+			"pico",
+			[
+				148,
+				22,
+				83
+			]
+		]
+	],
+
+	"weekCharacters": [
+		"pico",
+		"bf",
+		"gf"
+	],
+	"weekBackground": "philly",
+	"songsList": ["Pico", "Philly Nice", "Blammed"],
+	"storyName": "PICO",
+	"weekBefore": "week2",
+	"weekName": "Week 3",
+	"startUnlocked": true,
+
+	"hideStoryMode": false,
+	"hideFreeplay": false
+}
