@@ -38,6 +38,15 @@ bf-gray
 gf-dead
 monster-gray
 pico
+bf-igor
+pico-igor
+mona-lisa
+grandpa
+bf-wii
+britney-spears
+rabbid
+polish-cow
+polish-cow-headbob
 mom
 mom-car
 bf-car
