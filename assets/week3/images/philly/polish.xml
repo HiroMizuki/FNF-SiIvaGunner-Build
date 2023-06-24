@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="polish.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="dancing-polish-cow-at4am_gif0000" x="0" y="0" width="498" height="280" pivotX="0" pivotY="0"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0001" x="0" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0002" x="0" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0003" x="498" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0004" x="498" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0005" x="498" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0006" x="996" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0007" x="996" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0008" x="996" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0009" x="1494" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0010" x="1494" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0011" x="1494" y="0" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0012" x="0" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0013" x="0" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0014" x="0" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0015" x="498" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0016" x="498" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0017" x="498" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0018" x="996" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0019" x="996" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0020" x="996" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0021" x="1494" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0022" x="1494" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0023" x="1494" y="280" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0024" x="0" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0025" x="0" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0026" x="0" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0027" x="498" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0028" x="498" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0029" x="498" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0030" x="996" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0031" x="996" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0032" x="996" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0033" x="1494" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0034" x="1494" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0035" x="1494" y="560" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0036" x="0" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0037" x="0" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0038" x="0" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0039" x="0" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0040" x="0" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0041" x="0" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0042" x="498" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0043" x="498" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0044" x="498" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0045" x="996" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0046" x="996" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0047" x="996" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0048" x="1494" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0049" x="1494" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0050" x="1494" y="840" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0051" x="0" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0052" x="0" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0053" x="0" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0054" x="498" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0055" x="498" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0056" x="498" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0057" x="996" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0058" x="996" y="1120" width="498" height="280"/>
+	<SubTexture name="dancing-polish-cow-at4am_gif0059" x="996" y="1120" width="498" height="280"/>
+</TextureAtlas>

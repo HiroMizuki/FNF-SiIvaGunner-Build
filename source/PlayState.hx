@@ -239,6 +239,8 @@ class PlayState extends MusicBeatState
 	var phillyWindowEvent:BGSprite;
 	var trainSound:FlxSound;
 
+	var polishCow:BGSprite;
+
 	var phillyGlowGradient:PhillyGlow.PhillyGlowGradient;
 	var phillyGlowParticles:FlxTypedGroup<PhillyGlow.PhillyGlowParticle>;
 
@@ -448,7 +450,7 @@ class PlayState extends MusicBeatState
 					curStage = 'palace';
 				case 'spookeez' | 'spookeez-(beta-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
 					curStage = 'spooky';
-				case 'pico-(ost-version)' | 'blammed' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
+				case 'pico-(ost-version)' | 'blammed' | 'blammed-(in-game-version)' | 'blammed-(extended-version)' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
 					curStage = 'philly';
 				case 'pico':
 					curStage = 'tyler';
@@ -696,6 +698,10 @@ class PlayState extends MusicBeatState
 				phillyStreet = new BGSprite('philly/' + thefolder + 'street', -40, 50);
 				add(phillyStreet);
 				
+				polishCow = new BGSprite('philly/polish', 430, 240, 1, 1, ['dancing-polish-cow-at4am_gif'], true);
+				polishCow.setGraphicSize(Std.int(FlxG.width * 1.5), Std.int(FlxG.height * 1.5));
+				polishCow.alpha = 0;
+
 				black = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 
 			case 'limo': //Week 4
@@ -980,8 +986,14 @@ class PlayState extends MusicBeatState
 		add(gfGroup); //Needed for blammed lights
 
 		// Shitty layering but whatev it works LOL
-		if (curStage == 'limo')
-			add(limo);
+		switch(curStage)
+		{
+			case 'limo':
+				add(limo);
+		}
+
+		if (Paths.formatToSongPath(SONG.song) == 'philly-nice')
+			add(polishCow);
 
 		add(dadGroup);
 		add(boyfriendGroup);
@@ -5192,6 +5204,16 @@ class PlayState extends MusicBeatState
 						FlxTween.tween(black, {alpha:1}, 2.5);
 					case 279:
 						FlxTween.tween(black, {alpha:0}, 0.4);
+				}
+
+			case 'philly-nice':
+				switch (curBeat) {
+					case 200:
+						polishCow.alpha = 1;
+						FlxG.camera.flash(FlxColor.WHITE, 0.5);
+					case 264:
+						polishCow.alpha = 0;
+						FlxG.camera.flash(FlxColor.WHITE, 0.5);
 				}
 		}
 
