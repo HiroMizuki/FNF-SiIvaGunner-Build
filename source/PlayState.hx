@@ -448,7 +448,7 @@ class PlayState extends MusicBeatState
 					curStage = 'palace';
 				case 'spookeez' | 'spookeez-(beta-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
 					curStage = 'spooky';
-				case 'pico-(ost-version)' | 'blammed' | 'philly-nice' | 'fresh-(ost-version)':
+				case 'pico-(ost-version)' | 'blammed' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
 					curStage = 'philly';
 				case 'pico':
 					curStage = 'tyler';
@@ -1110,8 +1110,7 @@ class PlayState extends MusicBeatState
 			camPos.y += gf.getGraphicMidpoint().y + gf.cameraPosition[1];
 		}
 
-		if(dad.curCharacter.startsWith('gf') ||
-			dad.curCharacter.startsWith('lady')) {
+		if(dad.curCharacter.startsWith('gf')) {
 			dad.setPosition(GF_X, GF_Y);
 			if(gf != null)
 				gf.visible = false;
@@ -1423,6 +1422,9 @@ class PlayState extends MusicBeatState
 
 				case 'ugh' | 'guns' | 'stress':
 					tankIntro();
+
+				case 'philly-(in-game-version)':
+					startVideo('ladyTransform');
 
 				default:
 					startCountdown();
@@ -3577,8 +3579,7 @@ class PlayState extends MusicBeatState
 				if(Math.isNaN(time) || time <= 0) time = 0.6;
 
 				if(value != 0) {
-					if(dad.curCharacter.startsWith('gf') ||
-					dad.curCharacter.startsWith('lady')) { //Tutorial GF is actually Dad! The GF is an imposter!! ding ding ding ding ding ding ding, dindinding, end my suffering
+					if(dad.curCharacter.startsWith('gf')) { //Tutorial GF is actually Dad! The GF is an imposter!! ding ding ding ding ding ding ding, dindinding, end my suffering
 						dad.playAnim('cheer', true);
 						dad.specialAnim = true;
 						dad.heyTimer = time;
