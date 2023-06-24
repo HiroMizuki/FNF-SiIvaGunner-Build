@@ -1359,7 +1359,7 @@ class PlayState extends MusicBeatState
 		#end
 
 		var daSong:String = Paths.formatToSongPath(curSong);
-		if (isStoryMode && !seenCutscene)
+		if (!seenCutscene)
 		{
 			switch (daSong)
 			{
@@ -1423,7 +1423,7 @@ class PlayState extends MusicBeatState
 				case 'ugh' | 'guns' | 'stress':
 					tankIntro();
 
-				case 'philly-(in-game-version)':
+				case 'philly-nice-(in-game-version)':
 					startVideo('ladyTransform');
 
 				default:
