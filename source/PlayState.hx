@@ -450,7 +450,7 @@ class PlayState extends MusicBeatState
 					curStage = 'palace';
 				case 'spookeez' | 'spookeez-(beta-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
 					curStage = 'spooky';
-				case 'pico-(ost-version)' | 'blammed' | 'blammed-(in-game-version)' | 'blammed-(extended-version)' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
+				case 'pico-(ost-version)' | 'blammed' | 'blammed-(week-4-update)' | 'blammed-(ost-version)' | 'blammed-(in-game-version)' | 'blammed-(extended-version)' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
 					curStage = 'philly';
 				case 'pico':
 					curStage = 'tyler';
