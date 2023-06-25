@@ -53,7 +53,7 @@ class StageData {
 					stage = 'tyler';
 				case 'pico-(in-game-version)':
 					stage = 'louvre';
-				case 'milf' | 'satin-panties' | 'high':
+				case 'm-i-l-f' | 'satin-panties' | 'high':
 					stage = 'limo';
 				case 'cocoa' | 'eggnog':
 					stage = 'mall';

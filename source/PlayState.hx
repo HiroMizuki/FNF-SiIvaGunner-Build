@@ -456,7 +456,7 @@ class PlayState extends MusicBeatState
 					curStage = 'tyler';
 				case 'pico-(in-game-version)':
 					curStage = 'louvre';
-				case 'milf' | 'satin-panties' | 'high':
+				case 'm-i-l-f' | 'satin-panties' | 'high':
 					curStage = 'limo';
 				case 'cocoa' | 'eggnog':
 					curStage = 'mall';
@@ -977,6 +977,13 @@ class PlayState extends MusicBeatState
 			case 'pico-(ost-version)':
 				introSoundsSuffix = '-rabbids';
 				GameOverSubstate.deathSoundName = 'rabbids_loss_sfx';
+				GameOverSubstate.characterName = 'bf-wii-dead';
+			case 'blammed-(week-4-update)' | 'satin-panties':
+				GameOverSubstate.characterName = 'bf-diddy-dead';
+			case 'blammed':
+				GameOverSubstate.characterName = 'bf-back-dead';
+			case 'pico':
+				GameOverSubstate.characterName = 'bf-igor-dead';
 		}
 
 		if(isPixelStage) {
