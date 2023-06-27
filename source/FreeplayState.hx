@@ -77,12 +77,12 @@ class FreeplayState extends MusicBeatState
 			WeekData.setDirectoryFromWeek(leWeek);
 			for (song in leWeek.songs)
 			{
-				var colors:Array<Int> = song[2];
+				var colors:Array<Int> = song[3];
 				if(colors == null || colors.length < 3)
 				{
 					colors = [146, 113, 253];
 				}
-				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+				addSong(song[0], song[1], i, song[2], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
 			}
 		}
 		WeekData.loadTheFirstEnabledMod();
@@ -192,9 +192,9 @@ class FreeplayState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
+	public function addSong(songName:String, songInput:String, weekNum:Int, songCharacter:String, color:Int)
 	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
+		songs.push(new SongMetadata(songName, songInput, weekNum, songCharacter, color));
 	}
 
 	function weekIsLocked(name:String):Bool {
@@ -312,8 +312,8 @@ class FreeplayState extends MusicBeatState
 				destroyFreeplayVocals();
 				FlxG.sound.music.volume = 0;
 				Paths.currentModDirectory = songs[curSelected].folder;
-				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase());
-				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+				var poop:String = Highscore.formatSong(songs[curSelected].songInput.toLowerCase());
+				PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songInput.toLowerCase());
 				if (PlayState.SONG.needsVoices)
 					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
 				else
@@ -333,7 +333,7 @@ class FreeplayState extends MusicBeatState
 		else if (accepted)
 		{
 			persistentUpdate = false;
-			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
+			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songInput);
 			var poop:String = Highscore.formatSong(songLowercase);
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
@@ -450,14 +450,16 @@ class FreeplayState extends MusicBeatState
 class SongMetadata
 {
 	public var songName:String = "";
+	public var songInput:String = "";
 	public var week:Int = 0;
 	public var songCharacter:String = "";
 	public var color:Int = -7179779;
 	public var folder:String = "";
 
-	public function new(song:String, week:Int, songCharacter:String, color:Int)
+	public function new(song:String, songInput:String, week:Int, songCharacter:String, color:Int)
 	{
 		this.songName = song;
+		this.songInput = songInput;
 		this.week = week;
 		this.songCharacter = songCharacter;
 		this.color = color;

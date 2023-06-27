@@ -15,6 +15,7 @@ using StringTools;
 typedef SwagSong =
 {
 	var song:String;
+	var songName:String;
 	var notes:Array<SwagSection>;
 	var events:Array<Dynamic>;
 	var bpm:Float;
@@ -141,4 +142,6 @@ class Song
 		swagShit.validScore = true;
 		return swagShit;
 	}
+
+	public static var instance:Song;
 }

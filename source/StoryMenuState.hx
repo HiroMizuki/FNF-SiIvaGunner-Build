@@ -132,7 +132,7 @@ class StoryMenuState extends MusicBeatState
 		add(bgSprite);
 		add(grpWeekCharacters);
 
-		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.75, bgSprite.y + 425).loadGraphic(Paths.image('Menu_Tracks'));
+		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.7465, bgSprite.y + 425).loadGraphic(Paths.image('Menu_Tracks'));
 		tracksSprite.antialiasing = ClientPrefs.globalAntialiasing;
 		add(tracksSprite);
 
@@ -339,7 +339,7 @@ class StoryMenuState extends MusicBeatState
 		}
 
 		txtTracklist.screenCenter(X);
-		txtTracklist.x += FlxG.width * 0.35;
+		txtTracklist.x += FlxG.width * 0.325;
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(loadedWeeks[curWeek].fileName);

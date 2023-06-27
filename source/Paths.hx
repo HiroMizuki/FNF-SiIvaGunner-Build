@@ -335,7 +335,7 @@ class Paths
 		var invalidChars = ~/[~&\\;:<>#]/;
 		var hideChars = ~/[.,'"%?!]/;
 
-		var path = invalidChars.split(path.replace(' ', '-').replace('.', '-')).join("-");
+		var path = invalidChars.split(path.replace(' ', '-')).join("-");
 		return hideChars.split(path).join("").toLowerCase();
 	}
 

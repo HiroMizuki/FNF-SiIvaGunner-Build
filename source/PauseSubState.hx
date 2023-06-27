@@ -49,6 +49,10 @@ class PauseSubState extends MusicBeatSubstate
 			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
 			menuItemsOG.insert(5 + num, 'Toggle Botplay');
 		}
+
+		if(Paths.formatToSongPath(PlayState.SONG.song) == 'dad-battle')
+			menuItemsOG.insert(3, 'End Song');
+
 		menuItems = menuItemsOG;
 
 		pauseMusic = new FlxSound();
@@ -68,11 +72,27 @@ class PauseSubState extends MusicBeatSubstate
 		add(bg);
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
-		levelInfo.text += PlayState.SONG.song;
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
 		add(levelInfo);
+
+		switch (Paths.formatToSongPath(PlayState.SONG.song)) { //SCREW THIS SHIT
+			default:
+				levelInfo.text += PlayState.SONG.song;
+			case 'milf':
+				levelInfo.text += 'M.I.L.F';
+			case 'milf-(beta-mix)':
+				levelInfo.text += 'M.I.L.F (Beta Mix)';
+			case 'milf-(in-game-version)':
+				levelInfo.text += 'M.I.L.F (In-Game Version)';
+			case 'milf-(itchio-build)':
+				levelInfo.text += 'M.I.L.F (Itch.io Build)';
+			case 'milf-(jp-version)':
+				levelInfo.text += 'M.I.L.F (JP Version)';
+			case 'milf-(ost-version)':
+				levelInfo.text += 'M.I.L.F (OST Version)';
+		}
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
 		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;

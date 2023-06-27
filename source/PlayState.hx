@@ -456,7 +456,7 @@ class PlayState extends MusicBeatState
 					curStage = 'tyler';
 				case 'pico-(in-game-version)':
 					curStage = 'louvre';
-				case 'm-i-l-f' | 'satin-panties' | 'high':
+				case 'milf' | 'milf-(beta-mix)' | 'milf-(short-mix)' | 'milf-(in-game-version)' | 'milf-(jp-version)' | 'milf-(ost-version)' | 'milf-(itchio-build)' | 'satin-panties' | 'satin-panties-(short-version)' | 'satin-panties-(in-game-version)' | 'high' | 'high-(extended-mix)' | 'high-(in-game-version)' | 'high-(jp-version)':
 					curStage = 'limo';
 				case 'cocoa' | 'eggnog':
 					curStage = 'mall';
@@ -708,17 +708,34 @@ class PlayState extends MusicBeatState
 				var skyBG:BGSprite = new BGSprite('limo/limoSunset', -120, -50, 0.1, 0.1);
 				add(skyBG);
 
+				switch (Paths.formatToSongPath(SONG.song))
+				{
+					case 'satin-panties-(in-game-version)':
+						bgLimo = new BGSprite('limo/christmas/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
+						limo = new BGSprite('limo/christmas/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
+					
+					case 'milf-(jp-version)':
+						bgLimo = new BGSprite('limo/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
+						limo = new BGSprite('limo/neko/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
+
+					default:
+						bgLimo = new BGSprite('limo/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
+						limo = new BGSprite('limo/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
+				}
+
 				if(!ClientPrefs.lowQuality) {
 					limoMetalPole = new BGSprite('gore/metalPole', -500, 220, 0.4, 0.4);
 					add(limoMetalPole);
 
-					bgLimo = new BGSprite('limo/bgLimo', -150, 480, 0.4, 0.4, ['background limo pink'], true);
 					add(bgLimo);
 
-					limoCorpse = new BGSprite('gore/noooooo', -500, limoMetalPole.y - 130, 0.4, 0.4, ['Henchmen on rail'], true);
-					add(limoCorpse);
+					var theName:String = '';
+					if (Paths.formatToSongPath(SONG.song) == 'satin-panties-(in-game-version)')
+						theName == 'CHRISTMAS';
 
-					limoCorpseTwo = new BGSprite('gore/noooooo', -500, limoMetalPole.y, 0.4, 0.4, ['henchmen death'], true);
+					limoCorpse = new BGSprite('gore/noooooo$theName', -500, limoMetalPole.y - 130, 0.4, 0.4, ['Henchmen on rail'], true);
+					limoCorpseTwo = new BGSprite('gore/noooooo$theName', -500, limoMetalPole.y, 0.4, 0.4, ['henchmen death'], true);
+					add(limoCorpse);
 					add(limoCorpseTwo);
 
 					grpLimoDancers = new FlxTypedGroup<BackgroundDancer>();
@@ -747,11 +764,11 @@ class PlayState extends MusicBeatState
 					precacheList.set('dancerdeath', 'sound');
 				}
 
-				limo = new BGSprite('limo/limoDrive', -120, 550, 1, 1, ['Limo stage'], true);
-
 				fastCar = new BGSprite('limo/fastCarLol', -300, 160);
 				fastCar.active = true;
 				limoKillingState = 0;
+
+				black = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
 
 			case 'mall': //Week 5 - Cocoa, Eggnog
 				var bg:BGSprite = new BGSprite('christmas/bgWalls', -1000, -500, 0.2, 0.2);
@@ -984,6 +1001,10 @@ class PlayState extends MusicBeatState
 				GameOverSubstate.characterName = 'bf-back-dead';
 			case 'pico':
 				GameOverSubstate.characterName = 'bf-igor-dead';
+			case 'milf-(jp-version)':
+				GameOverSubstate.characterName = 'bf-neko-dead';
+			case 'dad-battle':
+				startingSong = false; //this shit never starting
 		}
 
 		if(isPixelStage) {
@@ -1005,7 +1026,7 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-		if (Paths.formatToSongPath(SONG.song) == 'pico-(ost-version)')
+		if (Paths.formatToSongPath(SONG.song) == 'pico-(ost-version)' || Paths.formatToSongPath(SONG.song) ==  'milf-(short-mix)')
 			add(black);
 
 		switch(curStage)
@@ -1445,6 +1466,12 @@ class PlayState extends MusicBeatState
 				case 'philly-nice-(in-game-version)':
 					startVideo('ladyTransform');
 
+				case 'milf-(short-mix)':
+					if (ClientPrefs.sensitivityVisual)
+						startVideo('milfNOPE');
+					else
+						startVideo('milfShortMix');
+
 				default:
 					startCountdown();
 			}
@@ -1725,7 +1752,10 @@ class PlayState extends MusicBeatState
 		#end
 		{
 			FlxG.log.warn('Couldnt find video file: ' + name);
-			startAndEnd();
+			if(Paths.formatToSongPath(SONG.song) == 'milf-(short-mix)')
+				finishSong(true);
+			else
+				startAndEnd();
 			return;
 		}
 
@@ -1733,12 +1763,19 @@ class PlayState extends MusicBeatState
 		video.playVideo(filepath);
 		video.finishCallback = function()
 		{
-			startAndEnd();
+			if(Paths.formatToSongPath(SONG.song) == 'milf-(short-mix)')
+				finishSong(true);
+			else
+				startAndEnd();
+
 			return;
 		}
 		#else
 		FlxG.log.warn('Platform not supported!');
-		startAndEnd();
+		if(Paths.formatToSongPath(SONG.song) == 'milf-(short-mix)')
+			finishSong(true);
+		else
+			startAndEnd();
 		return;
 		#end
 	}
@@ -3059,14 +3096,26 @@ class PlayState extends MusicBeatState
 									switch(i) {
 										case 0 | 3:
 											if(i == 0) FlxG.sound.play(Paths.sound('dancerdeath'), 0.5);
-
 											var diffStr:String = i == 3 ? ' 2 ' : ' ';
-											var particle:BGSprite = new BGSprite('gore/noooooo', dancers[i].x + 200, dancers[i].y, 0.4, 0.4, ['hench leg spin' + diffStr + 'PINK'], false);
-											grpLimoParticles.add(particle);
-											var particle:BGSprite = new BGSprite('gore/noooooo', dancers[i].x + 160, dancers[i].y + 200, 0.4, 0.4, ['hench arm spin' + diffStr + 'PINK'], false);
-											grpLimoParticles.add(particle);
-											var particle:BGSprite = new BGSprite('gore/noooooo', dancers[i].x, dancers[i].y + 50, 0.4, 0.4, ['hench head spin' + diffStr + 'PINK'], false);
-											grpLimoParticles.add(particle);
+											
+											switch (Paths.formatToSongPath(SONG.song))
+											{
+												case 'satin-panties-(in-game-version)':
+													var particle:BGSprite = new BGSprite('gore/nooooooCHRISTMAS', dancers[i].x + 200, dancers[i].y, 0.4, 0.4, ['hench leg spin' + diffStr + 'PINK'], false);
+													grpLimoParticles.add(particle);
+													var particle:BGSprite = new BGSprite('gore/nooooooCHRISTMAS', dancers[i].x + 160, dancers[i].y + 200, 0.4, 0.4, ['hench arm spin' + diffStr + 'PINK'], false);
+													grpLimoParticles.add(particle);
+													var particle:BGSprite = new BGSprite('gore/nooooooCHRISTMAS', dancers[i].x, dancers[i].y + 50, 0.4, 0.4, ['hench head spin' + diffStr + 'PINK'], false);
+													grpLimoParticles.add(particle);
+
+												default:
+													var particle:BGSprite = new BGSprite('gore/noooooo', dancers[i].x + 200, dancers[i].y, 0.4, 0.4, ['hench leg spin' + diffStr + 'PINK'], false);
+													grpLimoParticles.add(particle);
+													var particle:BGSprite = new BGSprite('gore/noooooo', dancers[i].x + 160, dancers[i].y + 200, 0.4, 0.4, ['hench arm spin' + diffStr + 'PINK'], false);
+													grpLimoParticles.add(particle);
+													var particle:BGSprite = new BGSprite('gore/noooooo', dancers[i].x, dancers[i].y + 50, 0.4, 0.4, ['hench head spin' + diffStr + 'PINK'], false);
+													grpLimoParticles.add(particle);
+											}
 
 											var particle:BGSprite = new BGSprite('gore/stupidBlood', dancers[i].x - 110, dancers[i].y + 20, 0.4, 0.4, ['blood'], false);
 											particle.flipX = true;
@@ -4215,18 +4264,28 @@ class PlayState extends MusicBeatState
 			shitPart2 = '-pixel';
 		}
 
-		switch (dad.curCharacter)
+		switch (dad.curCharacter) //makin by character because it's cooler and funnier
 		{
 			case 'big-chungus':
 				shitPart1 = 'chunga/';
-			case 'spooky-ballin':
+			case 'spooky-ballin' | 'whitty-ballin':
 				shitPart1 = 'jam/';
+			case 'mom-courtney-car':
+				shitPart1 = 'aceAttorney/';
 		}
 
 		switch (boyfriend.curCharacter)
 		{
 			case 'charles-barkley':
 				shitPart1 = 'jam/';
+			case 'bf-edgeworth-car':
+				shitPart1 = 'aceAttorney/';
+		}
+
+		switch (gf.curCharacter)
+		{
+			case 'gf-faraday-car':
+				shitPart1 = 'aceAttorney/';
 		}
 
 		Paths.image(shitPart1 + "sick" + shitPart2);
@@ -4839,11 +4898,6 @@ class PlayState extends MusicBeatState
 				popUpScore(note);
 			}
 			health += note.hitHealth * healthGain;
-
-			if (boyfriend.curCharacter == 'bf-miss') {
-				camGame.shake(1, 0.05);
-				camHUD.shake(1, 0.03);
-			}
 
 			if(!note.noAnimation) {
 				var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))];

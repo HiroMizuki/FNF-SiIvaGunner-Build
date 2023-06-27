@@ -53,7 +53,7 @@ class StageData {
 					stage = 'tyler';
 				case 'pico-(in-game-version)':
 					stage = 'louvre';
-				case 'm-i-l-f' | 'satin-panties' | 'high':
+				case 'milf' | 'milf-(beta-mix)' | 'milf-(short-mix)' | 'milf-(in-game-version)' | 'milf-(jp-version)' | 'milf-(ost-version)' | 'milf-(itchio-build)' | 'satin-panties-(in-game-version)' | 'satin-panties-(short-version)' | 'satin-panties' | 'high' | 'high-(extended-mix)' | 'high-(in-game-version)' | 'high-(jp-version)':
 					stage = 'limo';
 				case 'cocoa' | 'eggnog':
 					stage = 'mall';

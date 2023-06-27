@@ -1,9 +1,5 @@
 {
 	"song": {
-		"speed": 2.3,
-		"stage": "stage",
-		"player1": "bf",
-		"player2": "dad",
 		"events": [
 			[
 				32000,
@@ -26,6 +22,36 @@
 				]
 			],
 			[
+				52083.3333333334,
+				[
+					[
+						"Play Animation",
+						"singLEFTmiss",
+						"BF"
+					]
+				]
+			],
+			[
+				52500,
+				[
+					[
+						"Play Animation",
+						"singUPmiss",
+						"BF"
+					]
+				]
+			],
+			[
+				52833.3333333334,
+				[
+					[
+						"Play Animation",
+						"singRIGHTmiss",
+						"BF"
+					]
+				]
+			],
+			[
 				53333.3333333334,
 				[
 					[
@@ -35,14 +61,6 @@
 					]
 				]
 			]
-		],
-		"notes": [],
-		"splashSkin": null,
-		"validScore": false,
-		"gfVersion": "gf",
-		"bpm": 180,
-		"arrowSkin": null,
-		"needsVoices": true,
-		"song": "Dad Battle (In-Game Mix)"
+		]
 	}
 }
