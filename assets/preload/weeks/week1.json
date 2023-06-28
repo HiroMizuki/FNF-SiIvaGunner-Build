@@ -209,5 +209,6 @@
 	],
 	"songsList": ["Bopeebo", "Fresh", "Dad Battle"],
 	"hiddenUntilUnlocked": false,
-	"weekName": "Week 1"
+	"weekName": "Week 1",
+	"hideVideo": false
 }

@@ -26,6 +26,7 @@ typedef WeekFile =
 	var hiddenUntilUnlocked:Bool;
 	var hideStoryMode:Bool;
 	var hideFreeplay:Bool;
+	var hideVideo:Bool;
 }
 
 class WeekData {
@@ -46,6 +47,7 @@ class WeekData {
 	public var hiddenUntilUnlocked:Bool;
 	public var hideStoryMode:Bool;
 	public var hideFreeplay:Bool;
+	public var hideVideo:Bool;
 
 	public var fileName:String;
 
@@ -62,7 +64,8 @@ class WeekData {
 			startUnlocked: true,
 			hiddenUntilUnlocked: false,
 			hideStoryMode: false,
-			hideFreeplay: false
+			hideFreeplay: false,
+			hideVideo: false
 		};
 		return weekFile;
 	}
@@ -81,6 +84,7 @@ class WeekData {
 		hiddenUntilUnlocked = weekFile.hiddenUntilUnlocked;
 		hideStoryMode = weekFile.hideStoryMode;
 		hideFreeplay = weekFile.hideFreeplay;
+		hideVideo = weekFile.hideVideo;
 
 		this.fileName = fileName;
 	}
@@ -147,7 +151,7 @@ class WeekData {
 						}
 						#end
 
-						if(weekFile != null && (isStoryMode == null || (isStoryMode && !weekFile.hideStoryMode) || (!isStoryMode && !weekFile.hideFreeplay))) {
+						if(weekFile != null && (isStoryMode == null || (isStoryMode && !weekFile.hideStoryMode) || (!isStoryMode && !weekFile.hideFreeplay) || (!weekFile.hideVideo))) {
 							weeksLoaded.set(sexList[i], weekFile);
 							weeksList.push(sexList[i]);
 						}
@@ -197,7 +201,7 @@ class WeekData {
 					weekFile.folder = directory.substring(Paths.mods().length, directory.length-1);
 					#end
 				}
-				if((PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay))
+				if((PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay) #if windows32 || (!weekFile.hideAnotherReason) #end)
 				{
 					weeksLoaded.set(weekToCheck, weekFile);
 					weeksList.push(weekToCheck);

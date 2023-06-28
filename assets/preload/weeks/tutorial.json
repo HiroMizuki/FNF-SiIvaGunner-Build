@@ -33,5 +33,6 @@
 	],
 	"songsList": ["Tutorial"],
 	"hideStoryMode": false,
-	"weekName": "Tutorial"
+	"weekName": "Tutorial",
+	"hideVideo": false
 }
