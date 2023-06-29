@@ -448,7 +448,7 @@ class PlayState extends MusicBeatState
 					curStage = 'bus';
 				case 'fresh-(poop-version)':
 					curStage = 'palace';
-				case 'spookeez' | 'spookeez-(beta-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
+				case 'spookeez' | 'spookeez-(beta-mix)' | 'south-(nice-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
 					curStage = 'spooky';
 				case 'pico-(ost-version)' | 'blammed' | 'blammed-(week-4-update)' | 'blammed-(ost-version)' | 'blammed-(in-game-version)' | 'blammed-(extended-version)' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
 					curStage = 'philly';
@@ -466,6 +466,8 @@ class PlayState extends MusicBeatState
 					curStage = 'school';
 				case 'senpai':
 					curStage = 'beach';
+				case 'senpai-(beta-mix)':
+					curStage = 'island';
 				case 'thorns':
 					curStage = 'schoolEvil';
 				case 'ugh' | 'guns' | 'stress':
@@ -925,6 +927,58 @@ class PlayState extends MusicBeatState
 					add(bgGirls);
 				}
 
+			case 'island': //Week 6 - Senpai, Roses
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
+				GameOverSubstate.loopSoundName = 'gameOver-pixel';
+				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
+				GameOverSubstate.characterName = 'bf-pixel-dead';
+
+				var repositionShit = -200;
+
+				var bgSky:BGSprite = new BGSprite('weeb/weebSky', 0, 0, 0.1, 0.1); //just to widshit yknow
+
+				var bgSchool:BGSprite = new BGSprite('weeb/weebIsland', repositionShit, 0, 0.6, 0.90);
+				add(bgSchool);
+				bgSchool.antialiasing = false;
+
+				var bgStreet:BGSprite = new BGSprite('weeb/weebGrass', repositionShit, 0, 0.95, 0.95);
+				add(bgStreet);
+				bgStreet.antialiasing = false;
+
+				var widShit = Std.int(bgSky.width * 6);
+				if(!ClientPrefs.lowQuality) {
+					var fgTrees:BGSprite = new BGSprite('weeb/weebTreesBack', repositionShit + 170, 130, 0.9, 0.9);
+					fgTrees.setGraphicSize(Std.int(widShit * 0.8));
+					fgTrees.updateHitbox();
+					add(fgTrees);
+					fgTrees.antialiasing = false;
+				}
+
+				var bgTrees:FlxSprite = new FlxSprite(repositionShit - 380, -800);
+				bgTrees.frames = Paths.getPackerAtlas('weeb/weebPines');
+				bgTrees.animation.add('treeLoop', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18], 12);
+				bgTrees.animation.play('treeLoop');
+				bgTrees.scrollFactor.set(0.85, 0.85);
+				add(bgTrees);
+				bgTrees.antialiasing = false;
+
+				bgSchool.setGraphicSize(widShit);
+				bgStreet.setGraphicSize(widShit);
+				bgTrees.setGraphicSize(Std.int(widShit * 1.4));
+
+				bgSchool.updateHitbox();
+				bgStreet.updateHitbox();
+				bgTrees.updateHitbox();
+
+				if(!ClientPrefs.lowQuality) {
+					bgGirls = new BackgroundGirls(-100, 190);
+					bgGirls.scrollFactor.set(0.9, 0.9);
+
+					bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+					bgGirls.updateHitbox();
+					add(bgGirls);
+				}
+
 			case 'schoolEvil': //Week 6 - Thorns
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
 				GameOverSubstate.loopSoundName = 'gameOver-pixel';
@@ -1132,7 +1186,7 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf-car';
 				case 'mall' | 'mallEvil':
 					gfVersion = 'gf-christmas';
-				case 'school' | 'schoolEvil':
+				case 'school' | 'schoolEvil' | 'beach':
 					gfVersion = 'gf-pixel';
 				case 'tank':
 					gfVersion = 'gf-tankmen';
@@ -5583,16 +5637,13 @@ class PlayState extends MusicBeatState
 			if(!Achievements.isAchievementUnlocked(achievementName) && !cpuControlled) {
 				var unlock:Bool = false;
 				
-				if (achievementName.contains(WeekData.getWeekFileName()) && !achievementName.contains('week5') && achievementName.endsWith('nomiss')) // any FC achievements, name should be "weekFileName_nomiss", e.g: "weekd_nomiss";
+				if (achievementName == WeekData.getWeekFileName()) // removed FC conditions due to shitty charts
 				{
-					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1)
+					if(isStoryMode && storyPlaylist.length <= 1)
 						unlock = true;
 				}
 				switch(achievementName)
 				{
-					case 'week5_nomiss':
-						if(isStoryMode && storyPlaylist.length <= 1) // winter horrorland short is literally unfair
-							unlock = true;
 					case 'ur_bad':
 						if(ratingPercent < 0.2 && !practiceMode) {
 							unlock = true;

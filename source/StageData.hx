@@ -45,7 +45,7 @@ class StageData {
 					stage = 'bus';
 				case 'fresh-(poop-version)':
 					stage = 'palace';
-				case 'spookeez' | 'spookeez-(beta-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
+				case 'spookeez' | 'spookeez-(beta-mix)' | 'south-(nice-mix)' | 'spookeez-(in-game-version)' | 'spookeez-(week-7-update)' | 'spookeez-(jpn-version)' | 'south' | 'south-(beta-mix)' | 'south-(in-game-version)' | 'monster' | 'monster-(in-game-version)':
 					stage = 'spooky';
 				case 'pico-(ost-version)' | 'blammed' | 'blammed-(week-4-update)' | 'blammed-(ost-version)' | 'blammed-(in-game-version)' | 'blammed-(extended-version)' | 'philly-nice' | 'philly-nice-(in-game-version)' | 'fresh-(ost-version)':
 					stage = 'philly';
@@ -63,6 +63,8 @@ class StageData {
 					stage = 'school';
 				case 'senpai':
 					stage = 'beach';
+				case 'senpai-(beta-mix)':
+					stage = 'island';
 				case 'thorns':
 					stage = 'schoolEvil';
 				case 'ugh' | 'guns' | 'stress':

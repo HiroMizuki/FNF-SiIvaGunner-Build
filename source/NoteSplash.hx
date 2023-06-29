@@ -10,10 +10,19 @@ class NoteSplash extends FlxSprite
 	private var idleAnim:String;
 	private var textureLoaded:String = null;
 
+	var shitPart1:String = '';
+	var shitPart2:String = '';
+
 	public function new(x:Float = 0, y:Float = 0, ?note:Int = 0) {
 		super(x, y);
 
-		var skin:String = 'noteSplashes';
+		if (PlayState.isPixelStage)
+		{
+			shitPart1 = 'pixelUI/';
+			shitPart2 = '-pixel';
+		}
+
+		var skin:String = shitPart1 + 'noteSplashes' + shitPart2;
 
 		if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
 
@@ -30,8 +39,14 @@ class NoteSplash extends FlxSprite
 		setPosition(x - Note.swagWidth * 0.95, y - Note.swagWidth);
 		alpha = 0.6;
 
+		if (PlayState.isPixelStage)
+		{
+			shitPart1 = 'pixelUI/';
+			shitPart2 = '-pixel';
+		}
+
 		if(texture == null) {
-			texture = 'noteSplashes';
+			texture = shitPart1 + 'noteSplashes' + shitPart2;
 			if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) texture = PlayState.SONG.splashSkin;
 		}
 
