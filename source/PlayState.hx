@@ -5399,7 +5399,7 @@ class PlayState extends MusicBeatState
 					spr.dance();
 				});
 
-			case 'school':
+			case 'school' | 'beach' | 'island':
 				if(!ClientPrefs.lowQuality) {
 					bgGirls.dance();
 				}
