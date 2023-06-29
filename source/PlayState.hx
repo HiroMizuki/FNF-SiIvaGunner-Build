@@ -1460,7 +1460,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'roses' | 'thorns':
+				case 'senpai' | 'roses' | 'thorns' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
