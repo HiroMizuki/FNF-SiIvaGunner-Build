@@ -45,6 +45,5 @@
 	"hideStoryMode": true,
 	"weekBefore": "week6",
 	"startUnlocked": true,
-	"songsList": ["Ugh", "Guns", "Stress"],
-	"hideVideo": true
+	"songsList": ["Ugh", "Guns", "Stress"]
 }

@@ -1,8 +1,9 @@
 {
 	"songs": [
-		["Cocoa", "parents", [160, 209, 255]],
-		["Eggnog", "parents", [160, 209, 255]],
-		["Winter Horrorland", "monster", [160, 209, 255]]
+		["Cocoa (Short Version)", "Cocoa (Short Version)", "parents", [160, 209, 255]],
+		["Eggnog", "Eggnog", "parents", [160, 209, 255]],
+		["Eggnog (Short Version)", "Eggnog (Short Version)", "parents", [160, 209, 255]],
+		["Winter Horrorland (Short Version)", "Winter Horrorland (Short Version)", "monster", [160, 209, 255]]
 	],
 
 	"weekCharacters": [
@@ -18,6 +19,5 @@
 	"startUnlocked": true,
 
 	"hideStoryMode": true,
-	"hideFreeplay": true,
-	"hideVideo": true
+	"hideFreeplay": false
 }

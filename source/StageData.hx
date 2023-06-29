@@ -55,9 +55,9 @@ class StageData {
 					stage = 'louvre';
 				case 'milf' | 'milf-(beta-mix)' | 'milf-(short-mix)' | 'milf-(in-game-version)' | 'milf-(jp-version)' | 'milf-(ost-version)' | 'milf-(itchio-build)' | 'satin-panties-(in-game-version)' | 'satin-panties-(short-version)' | 'satin-panties' | 'high' | 'high-(extended-mix)' | 'high-(in-game-version)' | 'high-(jp-version)':
 					stage = 'limo';
-				case 'cocoa' | 'eggnog':
+				case 'cocoa' | 'cocoa-(short-version)' | 'eggnog' | 'eggnog-(short-version)':
 					stage = 'mall';
-				case 'winter-horrorland':
+				case 'winter-horrorland' | 'winter-horrorland-(short-version)':
 					stage = 'mallEvil';
 				case 'senpai' | 'roses':
 					stage = 'school';

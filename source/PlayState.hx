@@ -458,9 +458,9 @@ class PlayState extends MusicBeatState
 					curStage = 'louvre';
 				case 'milf' | 'milf-(beta-mix)' | 'milf-(short-mix)' | 'milf-(in-game-version)' | 'milf-(jp-version)' | 'milf-(ost-version)' | 'milf-(itchio-build)' | 'satin-panties' | 'satin-panties-(short-version)' | 'satin-panties-(in-game-version)' | 'high' | 'high-(extended-mix)' | 'high-(in-game-version)' | 'high-(jp-version)':
 					curStage = 'limo';
-				case 'cocoa' | 'eggnog':
+				case 'cocoa' | 'cocoa-(short-version)' | 'eggnog' | 'eggnog-(short-version)':
 					curStage = 'mall';
-				case 'winter-horrorland':
+				case 'winter-horrorland' | 'winter-horrorland-(short-version)':
 					curStage = 'mallEvil';
 				case 'senpai' | 'roses':
 					curStage = 'school';
@@ -810,7 +810,11 @@ class PlayState extends MusicBeatState
 				bg.updateHitbox();
 				add(bg);
 
-				var evilTree:BGSprite = new BGSprite('christmas/evilTree', 300, -300, 0.2, 0.2);
+				var evilTree:BGSprite;
+				if(Paths.formatToSongPath(SONG.song) == 'winter-horrorland-(short-version)')
+					evilTree = new BGSprite('christmas/kawaiTree', 300, -300, 0.2, 0.2);
+				else
+					evilTree = new BGSprite('christmas/evilTree', 300, -300, 0.2, 0.2);
 				add(evilTree);
 
 				var evilSnow:BGSprite = new BGSprite('christmas/evilSnow', -200, 700);
@@ -1426,7 +1430,7 @@ class PlayState extends MusicBeatState
 					if(gf != null) gf.playAnim('scared', true);
 					boyfriend.playAnim('scared', true);
 
-				case "winter-horrorland":
+				case "winter-horrorland" | "winter-horrorland-(short-version)":
 					var blackScreen:FlxSprite = new FlxSprite().makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 					add(blackScreen);
 					blackScreen.scrollFactor.set();
@@ -5538,13 +5542,16 @@ class PlayState extends MusicBeatState
 			if(!Achievements.isAchievementUnlocked(achievementName) && !cpuControlled) {
 				var unlock:Bool = false;
 				
-				if (achievementName.contains(WeekData.getWeekFileName()) && achievementName.endsWith('nomiss')) // any FC achievements, name should be "weekFileName_nomiss", e.g: "weekd_nomiss";
+				if (achievementName.contains(WeekData.getWeekFileName()) && !achievementName.contains('week5') && achievementName.endsWith('nomiss')) // any FC achievements, name should be "weekFileName_nomiss", e.g: "weekd_nomiss";
 				{
-					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1 && !usedPractice)
+					if(isStoryMode && campaignMisses + songMisses < 1 && storyPlaylist.length <= 1)
 						unlock = true;
 				}
 				switch(achievementName)
 				{
+					case 'week5_nomiss':
+						if(isStoryMode && storyPlaylist.length <= 1) // winter horrorland short is literally unfair
+							unlock = true;
 					case 'ur_bad':
 						if(ratingPercent < 0.2 && !practiceMode) {
 							unlock = true;
