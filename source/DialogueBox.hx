@@ -39,10 +39,10 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		super();
 
-		switch (PlayState.SONG.song.toLowerCase())
+		switch (PlayState.SONG.song.toLowerCase().replace(' ', '-'))
 		{
-			case 'senpai':
-				FlxG.sound.playMusic(Paths.music('lunchbox-' + ClientPrefs.lunchbox.toLowerCase()), 0);
+			case 'senpai', 'lunchbox-ripped', 'lunchbox-original', 'lunchbox-in-game-version':
+				FlxG.sound.playMusic(Paths.music('Lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-')), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
@@ -64,13 +64,14 @@ class DialogueBox extends FlxSpriteGroup
 		box = new FlxSprite(-20, 45);
 		
 		var hasDialog = false;
-		switch (PlayState.SONG.song.toLowerCase())
+		switch (PlayState.SONG.song.toLowerCase().replace(' ', '-'))
 		{
-			case 'senpai':
+			case 'senpai', 'lunchbox-ripped', 'lunchbox-original', 'lunchbox-in-game-version':
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear instance 1', [4], "", 24);
+
 			case 'roses':
 				hasDialog = true;
 				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
@@ -140,7 +141,6 @@ class DialogueBox extends FlxSpriteGroup
 		handSelect.visible = false;
 		add(handSelect);
 
-
 		if (!talkingRight)
 		{
 			// box.flipX = true;
@@ -165,9 +165,9 @@ class DialogueBox extends FlxSpriteGroup
 	override function update(elapsed:Float)
 	{
 		// HARD CODING CUZ IM STUPDI
-		if (PlayState.SONG.song.toLowerCase() == 'roses')
+		if (PlayState.SONG.song.toLowerCase().replace(' ', '-') == 'roses')
 			portraitLeft.visible = false;
-		if (PlayState.SONG.song.toLowerCase() == 'thorns')
+		if (PlayState.SONG.song.toLowerCase().replace(' ', '-') == 'thorns')
 		{
 			portraitLeft.visible = false;
 			swagDialogue.color = FlxColor.WHITE;
@@ -193,63 +193,56 @@ class DialogueBox extends FlxSpriteGroup
 
 		if(PlayerSettings.player1.controls.ACCEPT)
 		{
-			switch (Paths.formatToSongPath(PlayState.SONG.song)) {
-				default:
-					if (dialogueEnded)
-					{
-						if (dialogueList[1] == null && dialogueList[0] != null)
-						{
-							if (!isEnding)
-							{
-								isEnding = true;
-								FlxG.sound.play(Paths.sound('clickText'), 0.8);	
-
-								if (PlayState.SONG.song.toLowerCase() == 'senpai' || PlayState.SONG.song.toLowerCase() == 'thorns')
-									FlxG.sound.music.fadeOut(1.5, 0);
-
-								new FlxTimer().start(0.2, function(tmr:FlxTimer)
-								{
-									box.alpha -= 1 / 5;
-									bgFade.alpha -= 1 / 5 * 0.7;
-									portraitLeft.visible = false;
-									portraitRight.visible = false;
-									swagDialogue.alpha -= 1 / 5;
-									handSelect.alpha -= 1 / 5;
-									dropText.alpha = swagDialogue.alpha;
-								}, 5);
-
-								new FlxTimer().start(1.5, function(tmr:FlxTimer)
-								{
-									finishThing();
-									kill();
-								});
-							}
-						}
-						else
-						{
-							dialogueList.remove(dialogueList[0]);
-							startDialogue();
-							FlxG.sound.play(Paths.sound('clickText'), 0.8);
-						}
-					}
-					else if (dialogueStarted)
-					{
-						FlxG.sound.play(Paths.sound('clickText'), 0.8);
-						swagDialogue.skip();
-						
-						if(skipDialogueThing != null) {
-							skipDialogueThing();
-						}
-					}
-
-		 			case 'lunchbox-ripped', 'lunchbox-original', 'lunchbox-in-game-version':
+			if (dialogueEnded)
+			{
+				if(PlayState.SONG.song.toLowerCase().replace(' ', '-').startsWith('lunchbox')) {
 					MusicBeatState.switchState(new options.OptionsState());
-
-					new FlxTimer().start(2, function(tmr:FlxTimer)
+					FlxG.sound.playMusic(Paths.music(TitleState.titleSong));
+				}
+				
+				if (dialogueList[1] == null && dialogueList[0] != null)
+				{
+					if (!isEnding)
 					{
-						PlayState.instance.openSubState(new options.MusicSettingsSubState());
-					});
-					
+						isEnding = true;
+						FlxG.sound.play(Paths.sound('clickText'), 0.8);	
+
+						if (PlayState.SONG.song.toLowerCase().replace(' ', '-') == 'senpai' || PlayState.SONG.song.toLowerCase().replace(' ', '-') == 'thorns')
+							FlxG.sound.music.fadeOut(1.5, 0);
+
+						new FlxTimer().start(0.2, function(tmr:FlxTimer)
+						{
+							box.alpha -= 1 / 5;
+							bgFade.alpha -= 1 / 5 * 0.7;
+							portraitLeft.visible = false;
+							portraitRight.visible = false;
+							swagDialogue.alpha -= 1 / 5;
+							handSelect.alpha -= 1 / 5;
+							dropText.alpha = swagDialogue.alpha;
+						}, 5);
+
+						new FlxTimer().start(1.5, function(tmr:FlxTimer)
+						{
+							finishThing();
+							kill();
+						});
+					}
+				}
+				else
+				{
+					dialogueList.remove(dialogueList[0]);
+					startDialogue();
+					FlxG.sound.play(Paths.sound('clickText'), 0.8);
+				}
+			}
+			else if (dialogueStarted)
+			{
+				FlxG.sound.play(Paths.sound('clickText'), 0.8);
+				swagDialogue.skip();
+				
+				if(skipDialogueThing != null) {
+					skipDialogueThing();
+				}
 			}
 		}
 		
@@ -281,7 +274,7 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.visible = false;
 				if (!portraitLeft.visible)
 				{
-					if (PlayState.SONG.song.toLowerCase() == 'senpai') portraitLeft.visible = true;
+					if (PlayState.SONG.song.toLowerCase().replace(' ', '-') == 'senpai' || PlayState.SONG.song.toLowerCase().replace(' ', '-').startsWith('lunchbox')) portraitLeft.visible = true;
 					portraitLeft.animation.play('enter');
 				}
 			case 'bf':

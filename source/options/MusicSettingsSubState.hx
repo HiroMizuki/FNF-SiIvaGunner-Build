@@ -8,6 +8,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
+import flixel.addons.transition.FlxTransitionableState;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
@@ -50,9 +51,23 @@ class MusicSettingsSubState extends BaseOptionsMenu
 			'Ripped',
 			['Original', 'Ripped', 'In-Game Version']);
 		addOption(option);
-		option.onChange = onChangeLunchbox;
 
 		super();
+	}
+
+	override function update(elapsed:Float) {
+		var shit = 'lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-');
+
+		if (curSelected == 1) {
+			PlayState.SONG = Song.loadFromJson(shit, shit);
+
+			if(FlxG.keys.justPressed.ENTER) {
+				LoadingState.loadAndSwitchState(new PlayState());
+				PlayState.seenCutscene = false;
+			}
+		}
+
+		super.update(elapsed);
 	}
 
 	var changedMusic:Bool = false;
@@ -64,14 +79,6 @@ class MusicSettingsSubState extends BaseOptionsMenu
 			FlxG.sound.playMusic(Paths.music(Paths.formatToSongPath(ClientPrefs.pauseMusic)));
 
 		changedMusic = true;
-	}
-
-	function onChangeLunchbox()
-	{
-		if(FlxG.keys.justPressed.ENTER) {
-			Song.loadFromJson('lunchbox-' + ClientPrefs.lunchbox.toLowerCase(), 'lunchbox-' + ClientPrefs.lunchbox.toLowerCase());
-			LoadingState.loadAndSwitchState(new PlayState());
-		}
 	}
 
 	override function destroy()

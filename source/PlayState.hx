@@ -462,8 +462,10 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'winter-horrorland' | 'winter-horrorland-(short-version)':
 					curStage = 'mallEvil';
-				case 'senpai' | 'roses':
+				case 'roses' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
 					curStage = 'school';
+				case 'senpai':
+					curStage = 'beach';
 				case 'thorns':
 					curStage = 'schoolEvil';
 				case 'ugh' | 'guns' | 'stress':
@@ -874,6 +876,45 @@ class PlayState extends MusicBeatState
 				bgSchool.updateHitbox();
 				bgStreet.updateHitbox();
 				bgTrees.updateHitbox();
+
+				if(!ClientPrefs.lowQuality) {
+					bgGirls = new BackgroundGirls(-100, 190);
+					bgGirls.scrollFactor.set(0.9, 0.9);
+
+					bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+					bgGirls.updateHitbox();
+					add(bgGirls);
+				}
+
+			case 'beach': //Week 6 - Senpai
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
+				GameOverSubstate.loopSoundName = 'gameOver-pixel';
+				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
+				GameOverSubstate.characterName = 'bf-pixel-dead';
+
+				var bgSky:BGSprite = new BGSprite('weeb/weebMountains', 0, 0, 0.1, 0.1);
+				add(bgSky);
+				bgSky.antialiasing = false;
+
+				var repositionShit = -200;
+
+				var bgSchool:BGSprite = new BGSprite('weeb/weebBeach', repositionShit, 0, 0.6, 0.90);
+				add(bgSchool);
+				bgSchool.antialiasing = false;
+
+				var bgStreet:BGSprite = new BGSprite('weeb/weebSidewalk', repositionShit, 0, 0.95, 0.95);
+				add(bgStreet);
+				bgStreet.antialiasing = false;
+
+				var widShit = Std.int(bgSky.width * 6);
+
+				bgSky.setGraphicSize(widShit);
+				bgSchool.setGraphicSize(widShit);
+				bgStreet.setGraphicSize(widShit);
+
+				bgSky.updateHitbox();
+				bgSchool.updateHitbox();
+				bgStreet.updateHitbox();
 
 				if(!ClientPrefs.lowQuality) {
 					bgGirls = new BackgroundGirls(-100, 190);

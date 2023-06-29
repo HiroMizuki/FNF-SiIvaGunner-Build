@@ -58,6 +58,8 @@ class TitleState extends MusicBeatState
 
 	public static var initialized:Bool = false;
 
+	public static var titleSong:String = '';
+
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
@@ -287,6 +289,8 @@ class TitleState extends MusicBeatState
 				logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 				logoBl.animation.play('bump');
 				logoBl.updateHitbox();
+				
+				titleSong = 'title/jetset/freakyMenu';
 
 			case 'SEXUALINTERCOURSE', 'FUCK', 'PORN':
 				gfDance.frames = Paths.getSparrowAtlas('title/default/gfDanceTitle');
@@ -298,6 +302,8 @@ class TitleState extends MusicBeatState
 				logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 				logoBl.animation.play('bump');
 				logoBl.updateHitbox();
+
+				titleSong = 'title/default/freakyMenu';
 
 			case 'RABBIDS':
 				gfDance.frames = Paths.getSparrowAtlas('title/rabbids/gfDanceTitle');
@@ -312,6 +318,8 @@ class TitleState extends MusicBeatState
 				logoBl.animation.play('bump');
 				logoBl.updateHitbox();
 
+				titleSong = 'title/default/freakyMenu';
+
 			default:
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
 			//EDIT THIS ONE IF YOU'RE MAKING A SOURCE CODE MOD!!!!
@@ -319,6 +327,8 @@ class TitleState extends MusicBeatState
 				gfDance.frames = Paths.getSparrowAtlas('title/default/gfDanceTitle');
 				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+
+				titleSong = 'title/default/freakyMenu';
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -663,14 +673,7 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					//FlxG.sound.music.stop();
-					switch(easterEgg.toUpperCase())
-					{
-						case 'JETSET':
-							FlxG.sound.playMusic(Paths.music('title/jetset/freakyMenu'), 0);
-
-						default:
-							FlxG.sound.playMusic(Paths.music('title/default/freakyMenu'), 0);
-					}
+					FlxG.sound.playMusic(Paths.music(titleSong), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
