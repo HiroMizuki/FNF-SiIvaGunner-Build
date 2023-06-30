@@ -468,6 +468,8 @@ class PlayState extends MusicBeatState
 					curStage = 'beach';
 				case 'senpai-(beta-mix)':
 					curStage = 'island';
+				case 'senpai-(in-game-version)':
+					curStage = 'town';
 				case 'thorns':
 					curStage = 'schoolEvil';
 				case 'ugh' | 'guns' | 'stress':
@@ -824,7 +826,7 @@ class PlayState extends MusicBeatState
 				var evilSnow:BGSprite = new BGSprite('christmas/evilSnow', -200, 700);
 				add(evilSnow);
 
-			case 'school': //Week 6 - Senpai, Roses
+			case 'school': //Week 6 - Roses
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
 				GameOverSubstate.loopSoundName = 'gameOver-pixel';
 				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
@@ -927,7 +929,7 @@ class PlayState extends MusicBeatState
 					add(bgGirls);
 				}
 
-			case 'island': //Week 6 - Senpai, Roses
+			case 'island': //Week 6 - Senpai (Beta Mix)
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
 				GameOverSubstate.loopSoundName = 'gameOver-pixel';
 				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
@@ -969,6 +971,53 @@ class PlayState extends MusicBeatState
 				bgSchool.updateHitbox();
 				bgStreet.updateHitbox();
 				bgTrees.updateHitbox();
+
+				if(!ClientPrefs.lowQuality) {
+					bgGirls = new BackgroundGirls(-100, 190);
+					bgGirls.scrollFactor.set(0.9, 0.9);
+
+					bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+					bgGirls.updateHitbox();
+					add(bgGirls);
+				}
+
+			case 'town': //Week 6 - Senpai (In-Game Version)
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
+				GameOverSubstate.loopSoundName = 'gameOver-pixel';
+				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
+				GameOverSubstate.characterName = 'bf-squisherz-pixel-dead';
+
+				var bgSky:BGSprite = new BGSprite('weeb/weebOpenSky', 0, 0, 0.1, 0.1);
+				add(bgSky);
+				bgSky.antialiasing = false;
+
+				var repositionShit = -200;
+
+				var bgSchool:BGSprite = new BGSprite('weeb/weebTown', repositionShit, 0, 0.6, 0.90);
+				add(bgSchool);
+				bgSchool.antialiasing = false;
+
+				var bgStreet:BGSprite = new BGSprite('weeb/weebGrayStreet', repositionShit, 0, 0.95, 0.95);
+				add(bgStreet);
+				bgStreet.antialiasing = false;
+
+				var widShit = Std.int(bgSky.width * 6);
+
+				if(!ClientPrefs.lowQuality) {
+					var treeLeaves:BGSprite = new BGSprite('weeb/petals', repositionShit, -40, 0.85, 0.85, ['PETALS ALL'], true);
+					treeLeaves.setGraphicSize(widShit);
+					treeLeaves.updateHitbox();
+					add(treeLeaves);
+					treeLeaves.antialiasing = false;
+				}
+
+				bgSky.setGraphicSize(widShit);
+				bgSchool.setGraphicSize(widShit);
+				bgStreet.setGraphicSize(widShit);
+
+				bgSky.updateHitbox();
+				bgSchool.updateHitbox();
+				bgStreet.updateHitbox();
 
 				if(!ClientPrefs.lowQuality) {
 					bgGirls = new BackgroundGirls(-100, 190);
@@ -1502,7 +1551,7 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
-				case "monster":
+				case "monster" | "monster-(in-game-version)":
 					var whiteScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
 					add(whiteScreen);
 					whiteScreen.scrollFactor.set();
@@ -1525,7 +1574,7 @@ class PlayState extends MusicBeatState
 					if(gf != null) gf.playAnim('scared', true);
 					boyfriend.playAnim('scared', true);
 
-				case "winter-horrorland" | "winter-horrorland-(short-version)":
+				case "winter-horrorland-(short-version)" | "winter-horrorland":
 					var blackScreen:FlxSprite = new FlxSprite().makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 					add(blackScreen);
 					blackScreen.scrollFactor.set();
@@ -1555,8 +1604,9 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'roses' | 'thorns' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
-					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
+				case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'roses' | 'thorns' |
+					'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
+					if(daSong.startsWith('roses')) FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
 				case 'ugh' | 'guns' | 'stress':
@@ -4202,9 +4252,9 @@ class PlayState extends MusicBeatState
 		if(achievementObj != null) {
 			return;
 		} else {
-			var achieve:String = checkForAchievement(['week1_nomiss', 'week2_nomiss', 'week3_nomiss', 'week4_nomiss',
-				'week5_nomiss', 'week6_nomiss', 'week7_nomiss', 'ur_bad',
-				'ur_good', 'hype', 'two_keys', 'toastie', 'debugger']);
+			var achieve:String = checkForAchievement(['week1', 'week2', 'week3', 'week4',
+				'week5', 'week6', 'week7', 'ur_bad', 'ur_good', 'hype', 'two_keys', 
+				'toastie', 'debugger']);
 
 			if(achieve != null) {
 				startAchievement(achieve);

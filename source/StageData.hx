@@ -65,6 +65,8 @@ class StageData {
 					stage = 'beach';
 				case 'senpai-(beta-mix)':
 					stage = 'island';
+				case 'senpai-(in-game-version)':
+					stage = 'town';
 				case 'thorns':
 					stage = 'schoolEvil';
 				case 'ugh' | 'guns' | 'stress':

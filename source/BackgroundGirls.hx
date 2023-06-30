@@ -11,7 +11,12 @@ class BackgroundGirls extends FlxSprite
 		super(x, y);
 
 		// BG fangirls dissuaded
-		frames = Paths.getSparrowAtlas('weeb/bgFreaks');
+		switch (Paths.formatToSongPath(PlayState.SONG.song)) {
+			default:
+				frames = Paths.getSparrowAtlas('weeb/bgFreaks');
+			case 'senpai-(in-game-version)':
+				frames = Paths.getSparrowAtlas('weeb/bgHypnospace');
+		}
 
 		swapDanceType();
 
