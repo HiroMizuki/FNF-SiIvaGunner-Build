@@ -64,8 +64,10 @@ class TitleState extends MusicBeatState
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
+
 	var ngSpr:FlxSprite;
 	var segaSpr:FlxSprite;
+	var tdpSpr:FlxSprite;
 	
 	var titleTextColors:Array<FlxColor> = [0xFF33FFFF, 0xFF3333CC];
 	var titleTextAlphas:Array<Float> = [1, .64];
@@ -76,7 +78,7 @@ class TitleState extends MusicBeatState
 
 	#if TITLE_SCREEN_EASTER_EGG
 	var easterEggKeys:Array<String> = [
-		'JETSET', 'SHADOW', 'SEXUALINTERCOURSE', 'FUCK', 'PORN', 'RABBIDS'
+		'JETSET', 'SHADOW', 'SEXUALINTERCOURSE', 'FUCK', 'PORN', 'RABBIDS', 'PIZZA', 'PIZZATOWER', 'PEPPINO'
 	];
 	var allowedKeys:String = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	var easterEggKeysBuffer:String = '';
@@ -124,7 +126,15 @@ class TitleState extends MusicBeatState
 
 		PlayerSettings.init();
 
-		curWacky = FlxG.random.getObject(getIntroTextShit());
+		switch(FlxG.save.data.psychDevsEasterEgg)
+		{
+			default:
+				curWacky = FlxG.random.getObject(getIntroTextShit());
+			case 'JETSET':
+				curWacky = FlxG.random.getObject(getJetsetTextShit());
+			case 'PIZZA', 'PIZZATOWER', 'PEPPINO':
+				curWacky = FlxG.random.getObject(getPizzaTextShit());
+		}
 
 		// DEBUG BULLSHIT
 
@@ -292,6 +302,20 @@ class TitleState extends MusicBeatState
 				
 				titleSong = 'title/jetset/freakyMenu';
 
+			case 'PIZZATOWER', 'PEPPINO', 'PIZZA':
+				titleTextColors = [0xFFC9FF33, 0xFF1DAF00];
+				gfDance.frames = Paths.getSparrowAtlas('title/pizza-tower/gfDanceTitle');
+				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+
+				logoBl.frames = Paths.getSparrowAtlas('title/pizza-tower/logoBumpin');
+				logoBl.antialiasing = ClientPrefs.globalAntialiasing;
+				logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
+				logoBl.animation.play('bump');
+				logoBl.updateHitbox();
+
+				titleSong = 'title/pizza-tower/freakyMenu';
+
 			case 'SEXUALINTERCOURSE', 'FUCK', 'PORN':
 				gfDance.frames = Paths.getSparrowAtlas('title/default/gfDanceTitle');
 				gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
@@ -413,6 +437,14 @@ class TitleState extends MusicBeatState
 		segaSpr.screenCenter(X);
 		segaSpr.antialiasing = ClientPrefs.globalAntialiasing;
 
+		tdpSpr = new FlxSprite(0, FlxG.height * 0.52).loadGraphic(Paths.image('tourdepizza_logo'));
+		add(tdpSpr);
+		tdpSpr.visible = false;
+		tdpSpr.setGraphicSize(Std.int(tdpSpr.width * 0.7));
+		tdpSpr.updateHitbox();
+		tdpSpr.screenCenter(X);
+		tdpSpr.antialiasing = ClientPrefs.globalAntialiasing;
+
 		// credTextShit.alignment = CENTER;
 
 		credTextShit.visible = false;
@@ -430,24 +462,37 @@ class TitleState extends MusicBeatState
 	function getIntroTextShit():Array<Array<String>>
 	{
 		var fullText:String = Assets.getText(Paths.txt('introText'));
-		var jetsetText:String = Assets.getText(Paths.txt('jetsetText'));
-
-		var firstArray:Array<String> = [];
+		var firstArray:Array<String> = fullText.split('\n');
 		var swagGoodArray:Array<Array<String>> = [];
 
-		switch (FlxG.save.data.psychDevsEasterEgg) {
-			default:
-				firstArray = fullText.split('\n');
-			case 'JETSET':
-				firstArray = jetsetText.split('\n');
-		}
-		
 		for (i in firstArray)
-		{
 			swagGoodArray.push(i.split('--'));
-		}
 
 		return swagGoodArray;
+	}
+
+	function getJetsetTextShit():Array<Array<String>>
+	{
+		var fullText:String = Assets.getText(Paths.txt('jetsetText'));
+		var jetsetArray:Array<String> = fullText.split('\n');
+		var jetsetGoodArray:Array<Array<String>> = [];
+
+		for (i in jetsetArray)
+			jetsetGoodArray.push(i.split('--'));
+
+		return jetsetGoodArray;
+	}
+
+	function getPizzaTextShit():Array<Array<String>>
+	{
+		var fullText:String = Assets.getText(Paths.txt('pizzaText'));
+		var pizzaArray:Array<String> = fullText.split('\n');
+		var pizzaGoodArray:Array<Array<String>> = [];
+
+		for (i in pizzaArray)
+			pizzaGoodArray.push(i.split('--'));
+
+		return pizzaGoodArray;
 	}
 
 	var transitioning:Bool = false;
@@ -665,6 +710,8 @@ class TitleState extends MusicBeatState
 				fnf = ['Jet', 'Set', 'Radio'];
 			case 'SEXUALINTERCOURSE', 'FUCK', 'PORN':
 				fnf = ['Friday', 'Night', 'Fuckin'];
+			case 'PIZZA', 'PIZZATOWER', 'PEPPINO':
+				fnf = ['Pizza', '', 'Tower'];
 		}
 
 		if(!closedState) {
@@ -697,17 +744,30 @@ class TitleState extends MusicBeatState
 						case 'JETSET':
 							addMoreText('sega', -40);
 							segaSpr.visible = true;
+						case 'PIZZA', 'PIZZATOWER', 'PEPPINO':
+							addMoreText('tour de pizza', -40);
+							tdpSpr.visible = true;
 					}
 				// credTextShit.text += '\nNewgrounds';
 				case 9:
 					deleteCoolText();
 					ngSpr.visible = false;
 					segaSpr.visible = false;
+					tdpSpr.visible = false;
 				// credTextShit.visible = false;
 
 				// credTextShit.text = 'Shoutouts Tom Fulp';
 				// credTextShit.screenCenter();
 				case 10:
+					switch(FlxG.save.data.psychDevsEasterEgg)
+					{
+						default:
+							curWacky = FlxG.random.getObject(getIntroTextShit());
+						case 'JETSET':
+							curWacky = FlxG.random.getObject(getJetsetTextShit());
+						case 'PIZZA', 'PIZZATOWER', 'PEPPINO':
+							curWacky = FlxG.random.getObject(getPizzaTextShit());
+					}
 					createCoolText([curWacky[0]]);
 				// credTextShit.visible = true;
 				case 12:
@@ -748,12 +808,25 @@ class TitleState extends MusicBeatState
 				var sound:FlxSound = null;
 				switch(easteregg)
 				{
+					case 'PIZZATOWER', 'PEPPINO', 'PIZZA':
+						remove(segaSpr);
+						remove(ngSpr);
+						remove(tdpSpr);
+						remove(credGroup);
+						FlxG.camera.flash(FlxColor.WHITE, 2);
+						skippedIntro = true;
+						playJingle = false;
+
+						FlxG.sound.playMusic(Paths.music('title/pizza-tower/freakyMenu'), 0);
+						FlxG.sound.music.fadeIn(4, 0, 0.7);
+						return;
 					case 'SEXUALINTERCOURSE', 'FUCK', 'PORN':
 						sound = FlxG.sound.play(Paths.music('title/fuckin/freakyMenu'));
 
 					case 'JETSET':
 						remove(segaSpr);
 						remove(ngSpr);
+						remove(tdpSpr);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);
 						skippedIntro = true;
@@ -765,6 +838,7 @@ class TitleState extends MusicBeatState
 					default: //Go back to normal ugly ass boring GF
 						remove(segaSpr);
 						remove(ngSpr);
+						remove(tdpSpr);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 2);
 						skippedIntro = true;
@@ -779,9 +853,22 @@ class TitleState extends MusicBeatState
 
 				switch(easteregg)
 				{
+					case 'PIZZATOWER', 'PEPPINO', 'PIZZA':
+						remove(segaSpr);
+						remove(ngSpr);
+						remove(tdpSpr);
+						remove(credGroup);
+						FlxG.camera.flash(FlxColor.WHITE, 3);
+						sound.onComplete = function() {
+							FlxG.sound.playMusic(Paths.music('title/pizza-tower/freakyMenu'), 0);
+							FlxG.sound.music.fadeIn(4, 0, 0.7);
+							transitioning = false;
+						};
+
 					case 'JETSET':
 						remove(segaSpr);
 						remove(ngSpr);
+						remove(tdpSpr);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 3);
 						sound.onComplete = function() {
@@ -793,6 +880,7 @@ class TitleState extends MusicBeatState
 					default:
 						remove(segaSpr);
 						remove(ngSpr);
+						remove(tdpSpr);
 						remove(credGroup);
 						FlxG.camera.flash(FlxColor.WHITE, 3);
 						sound.onComplete = function() {
@@ -807,6 +895,7 @@ class TitleState extends MusicBeatState
 			{
 				remove(segaSpr);
 				remove(ngSpr);
+				remove(tdpSpr);
 				remove(credGroup);
 				FlxG.camera.flash(FlxColor.WHITE, 4);
 

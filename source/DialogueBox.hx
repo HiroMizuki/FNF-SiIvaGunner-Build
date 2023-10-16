@@ -84,7 +84,15 @@ class DialogueBox extends FlxSpriteGroup
 				hasDialog = true;
 				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
 
-				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-senpaiMad');
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-TB3');
+				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
+				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH instance 1', [4], "", 24);
+
+			case 'roses-(beta-mix)':
+				hasDialog = true;
+				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
+
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-willSmith');
 				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
 				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH instance 1', [4], "", 24);
 
@@ -140,6 +148,16 @@ class DialogueBox extends FlxSpriteGroup
 			default:
 				portraitRight = new FlxSprite(0, 40);
 				portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
+				portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
+				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
+				portraitRight.updateHitbox();
+				portraitRight.scrollFactor.set();
+				add(portraitRight);
+				portraitRight.visible = false;
+
+			case 'roses':
+				portraitRight = new FlxSprite(0, 40);
+				portraitRight.frames = Paths.getSparrowAtlas('weeb/GM08Portrait');
 				portraitRight.animation.addByPrefix('enter', 'Boyfriend portrait enter', 24, false);
 				portraitRight.setGraphicSize(Std.int(portraitRight.width * PlayState.daPixelZoom * 0.9));
 				portraitRight.updateHitbox();

@@ -462,7 +462,7 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'winter-horrorland' | 'winter-horrorland-(short-version)':
 					curStage = 'mallEvil';
-				case 'roses' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
+				case 'roses' | 'roses-(beta-mix)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
 					curStage = 'school';
 				case 'senpai':
 					curStage = 'beach';
@@ -1151,6 +1151,8 @@ class PlayState extends MusicBeatState
 				GameOverSubstate.characterName = 'bf-igor-dead';
 			case 'milf-(jp-version)':
 				GameOverSubstate.characterName = 'bf-neko-dead';
+			case 'roses':
+				GameOverSubstate.characterName = 'gm08-pixel-dead';
 			case 'dad-battle':
 				startingSong = false; //this shit never starting
 		}

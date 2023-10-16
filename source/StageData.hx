@@ -59,7 +59,7 @@ class StageData {
 					stage = 'mall';
 				case 'winter-horrorland' | 'winter-horrorland-(short-version)':
 					stage = 'mallEvil';
-				case 'roses' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
+				case 'roses' | 'roses-(beta-mix)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
 					stage = 'school';
 				case 'senpai':
 					stage = 'beach';
