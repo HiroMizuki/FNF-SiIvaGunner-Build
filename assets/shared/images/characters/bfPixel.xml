@@ -128,4 +128,30 @@
 	<SubTexture name="BF UP NOTE instance 10011" x="166" y="249" width="73" height="73"/>
 	<SubTexture name="BF UP NOTE instance 10012" x="166" y="249" width="73" height="73"/>
 	<SubTexture name="BF UP NOTE instance 10013" x="166" y="249" width="73" height="73"/>
+	<SubTexture name="BF HEY!!10000" x="249" y="264" width="59" height="58"/>
+	<SubTexture name="BF HEY!!10001" x="249" y="264" width="59" height="58"/>
+	<SubTexture name="BF HEY!!10002" x="320" y="264" width="59" height="58"/>
+	<SubTexture name="BF HEY!!10003" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10004" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10005" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10006" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10007" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10008" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10009" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10010" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10011" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10012" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10013" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10014" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10015" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10016" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10017" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10018" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10019" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10020" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10021" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10022" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10023" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10024" x="320" y="264" width="59" height="58"/> 
+	<SubTexture name="BF HEY!!10025" x="320" y="264" width="59" height="58"/> 
 </TextureAtlas>

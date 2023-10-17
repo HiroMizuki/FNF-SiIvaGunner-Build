@@ -1606,7 +1606,7 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'roses' | 'thorns' |
+				case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'roses' | 'roses-(beta-mix)' | 'thorns' |
 					'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
 					if(daSong.startsWith('roses')) FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);

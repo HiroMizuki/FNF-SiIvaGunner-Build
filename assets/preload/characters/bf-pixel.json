@@ -91,6 +91,17 @@
 		{
 			"loop": false,
 			"offsets": [
+				-11,
+				-84
+			],
+			"anim": "hey",
+			"fps": 24,
+			"name": "BF HEY",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
 				0,
 				0
 			],

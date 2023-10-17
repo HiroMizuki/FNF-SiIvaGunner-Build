@@ -44,7 +44,7 @@ class DialogueBox extends FlxSpriteGroup
 			default:
 				FlxG.sound.playMusic(Paths.music('Lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-')), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'roses':
+			case 'roses' | 'roses-(beta-mix)':
 				//nothing!!!!!!
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
