@@ -1,115 +1,16 @@
 {
 	"songs": [
-		[
-			"Pico",
-			"Pico",
-			"pico-igor",
-			[
-				101,
-				192,
-				235
-			]
-		],
-		[
-			"Pico (In-Game Version)",
-			"Pico (In-Game Version)",
-			"grandpa",
-			[
-				186,
-				186,
-				186
-			]
-		],
-		[
-			"Pico (OST Version)",
-			"Pico (OST Version)",
-			"rabbid",
-			[
-				186,
-				186,
-				186
-			]
-		],
-		[
-			"Philly Nice",
-			"Philly Nice",
-			"pico",
-			[
-				148,
-				22,
-				83
-			]
-		],
-		[
-			"Philly Nice (In-Game Version)",
-			"Philly Nice (In-Game Version)",
-			"lady",
-			[
-				255,
-				133,
-				0
-			]
-		],
-		[
-			"Blammed",
-			"Blammed",
-			"pico",
-			[
-				148,
-				22,
-				83
-			]
-		],
-		[
-			"Blammed (Extended Version)",
-			"Blammed (Extended Version)",
-			"pico",
-			[
-				148,
-				22,
-				83
-			]
-		],
-		[
-			"Blammed (In-Game Mix)",
-			"Blammed (In-Game Mix)",
-			"lady",
-			[
-				255,
-				133,
-				0
-			]
-		],
-		[
-			"Blammed (In-Game Version)",
-			"Blammed (In-Game Version)",
-			"juice-wrld",
-			[
-				74,
-				31,
-				130
-			]
-		],
-		[
-			"Blammed (OST Version)",
-			"Blammed (OST Version)",
-			"karkat-vantas",
-			[
-				255,
-				204,
-				51
-			]
-		],
-		[
-			"Blammed (Week 4 Update)",
-			"Blammed (Week 4 Update)",
-			"pico-fetty-wap",
-			[
-				201,
-				200,
-				199
-			]
-		]
+		["Pico", "Pico", "pico-igor", [101, 192, 235]],
+		["Pico (In-Game Version)", "Pico (In-Game Version)", "grandpa", [186, 186, 186]],
+		["Pico (OST Version)", "Pico (OST Version)", "rabbid", [186, 186, 186]],
+		["Philly Nice", "Philly Nice", "pico", [148, 2, 83]],
+		["Philly Nice (In-Game Version)", "Philly Nice (In-Game Version)", "lady", [255, 133, 0]],
+		["Blammed", "Blammed", "pico", [148, 22, 83]],
+		["Blammed (Extended Version)", "Blammed (Extended Version)", "pico", [148, 22, 83]],
+		["Blammed (In-Game Mix)", "Blammed (In-Game Mix)", "lady", [255, 133, 0]],
+		["Blammed (In-Game Version)", "Blammed (In-Game Version)", "juice-wrld", [74, 31, 130]],
+		["Blammed (OST Version)", "Blammed (OST Version)", "karkat-vantas", [255, 204, 51]],
+		["Blammed (Week 4 Update)", "Blammed (Week 4 Update)", "pico-fetty-wap", [201, 200, 199]]
 	],
 
 	"weekCharacters": [

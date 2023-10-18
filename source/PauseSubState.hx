@@ -92,6 +92,12 @@ class PauseSubState extends MusicBeatSubstate
 				levelInfo.text += 'M.I.L.F (JP Version)';
 			case 'milf-(ost-version)':
 				levelInfo.text += 'M.I.L.F (OST Version)';
+			case 'fresh-(itchio-build)':
+				levelInfo.text += 'Fresh (Itch.io Build)';
+			case 'bopeebo-(itchio-build)':
+				levelInfo.text += 'Bopeebo (Itch.io Build)';
+			case 'roses-(itchio-build)':
+				levelInfo.text += 'Roses (Itch.io Build)';
 		}
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 32, 0, "", 32);

@@ -44,7 +44,7 @@ class DialogueBox extends FlxSpriteGroup
 			default:
 				FlxG.sound.playMusic(Paths.music('Lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-')), 0);
 				FlxG.sound.music.fadeIn(1, 0, 0.8);
-			case 'roses' | 'roses-(beta-mix)':
+			case 'roses' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'roses-(itchio-build)':
 				//nothing!!!!!!
 			case 'thorns':
 				FlxG.sound.playMusic(Paths.music('LunchboxScary'), 0);
@@ -93,6 +93,14 @@ class DialogueBox extends FlxSpriteGroup
 				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
 
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-willSmith');
+				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
+				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH instance 1', [4], "", 24);
+
+			case 'roses-(in-game-version)' | 'roses-(itchio-build)':
+				hasDialog = true;
+				FlxG.sound.play(Paths.sound('ANGRY_TEXT_BOX'));
+
+				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-senpaiMad');
 				box.animation.addByPrefix('normalOpen', 'SENPAI ANGRY IMPACT SPEECH', 24, false);
 				box.animation.addByIndices('normal', 'SENPAI ANGRY IMPACT SPEECH instance 1', [4], "", 24);
 

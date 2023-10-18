@@ -462,7 +462,7 @@ class PlayState extends MusicBeatState
 					curStage = 'mall';
 				case 'winter-horrorland' | 'winter-horrorland-(short-version)':
 					curStage = 'mallEvil';
-				case 'roses' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
+				case 'roses' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version' | 'roses-(itchio-build)':
 					curStage = 'school';
 				case 'senpai':
 					curStage = 'beach';
@@ -1607,7 +1607,7 @@ class PlayState extends MusicBeatState
 						});
 					});
 				case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'roses' | 'roses-(beta-mix)' | 'thorns' |
-					'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version':
+					'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version' | 'roses-(itchio-build)':
 					if(daSong.startsWith('roses')) FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 

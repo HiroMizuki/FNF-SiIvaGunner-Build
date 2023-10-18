@@ -10,26 +10,8 @@
 		"gf"
 	],
 	"songs": [
-		[
-			"Tutorial",
-			"Tutorial",
-			"gf",
-			[
-				165,
-				0,
-				77
-			]
-		],
-		[
-			"Tutorial (Beta Mix)",
-			"Tutorial (Beta Mix)",
-			"gf-lady",
-			[
-				255,
-				133,
-				0
-			]
-		]
+		["Tutorial", "Tutorial", "gf", [165, 0, 77]],
+		["Tutorial (Beta Mix)", "Tutorial (Beta Mix)", "gf-lady", [255, 133, 0]]
 	],
 	"songsList": ["Tutorial"],
 	"hideStoryMode": false,

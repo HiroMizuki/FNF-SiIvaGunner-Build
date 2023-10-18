@@ -11,206 +11,26 @@
 	"startUnlocked": true,
 	"hideStoryMode": false,
 	"songs": [
-		[
-			"Bopeebo",
-			"Bopeebo",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Bopeebo (Beta Mix)",
-			"Bopeebo (Beta Mix)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Bopeebo (Extended Version)",
-			"Bopeebo (Extended Version)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Bopeebo (In-Game Version)",
-			"Bopeebo (In-Game Version)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Bopeebo (Itch.io Build)",
-			"Bopeebo (Itch.io Build)",
-			"scatman-john",
-			[
-				155,
-				155,
-				155
-			]
-		],
-		[
-			"Bopeebo (Newgrounds Build)",
-			"Bopeebo (Newgrounds Build)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Bopeebo (OST Version)",
-			"Bopeebo (OST Version)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Bopeebo (Short Version)",
-			"Bopeebo (Short Version)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Fresh",
-			"Fresh",
-			"red-jerma",
-			[
-				226,
-				0,
-				0
-			]
-		],
-		[
-			"Fresh (Alternate Version)",
-			"Fresh (Alternate Version)",
-			"bomberman",
-			[
-				229,
-				55,
-				120
-			]
-		],
-		[
-			"Fresh (In-Game Version)",
-			"Fresh (In-Game Version)",
-			"big-chungus",
-			[
-				79,
-				79,
-				79
-			]
-		],
-		[
-			"Fresh (Itch.io Build)",
-			"Fresh (Itch.io Build)",
-			"bus",
-			[
-				199,
-				79,
-				79
-			]
-		],
-		[
-			"Fresh (OST Version)",
-			"Fresh (OST Version)",
-			"double-dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Fresh (Poop Version)",
-			"Fresh (Poop Version)",
-			"king-harkinian",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Fresh (Vocal Mix)",
-			"Fresh (Vocal Mix)",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Fresh (Week 7 Update)",
-			"Fresh (Week 7 Update)",
-			"plok",
-			[
-				222,
-				73,
-				73
-			]
-		],
-		[
-			"Dad Battle",
-			"Dad Battle",
-			"dad",
-			[
-				146,
-				113,
-				253
-			]
-		],
-		[
-			"Dad Battle (In-Game Mix)",
-			"Dad Battle (In-Game Mix)",
-			"invisible",
-			[
-				120,
-				120,
-				120
-			]
-		],
-		[
-			"Dad Battle (In-Game Version)",
-			"Dad Battle (In-Game Version)",
-			"rapper-mario",
-			[
-				187,
-				77,
-				99
-			]
-		],
-		[
-			"Dad Battle (JP Version)",
-			"Dad Battle (JP Version)",
-			"ragyo",
-			[
-				255,
-				230,
-				230
-			]
-		]
+		["Bopeebo", "Bopeebo", "dad", [146, 113, 253]],
+		["Bopeebo (Beta Mix)", "Bopeebo (Beta Mix)", "dad", [146, 113, 253]],
+		["Bopeebo (Extended Version)", "Bopeebo (Extended Version)", "dad", [146, 113, 253]],
+		["Bopeebo (In-Game Version)", "Bopeebo (In-Game Version)", "dad", [146, 113, 253]],
+		["Bopeebo (Itch.io Build)", "Bopeebo (Itchio Build)", "scatman-john", [155, 155, 155]],
+		["Bopeebo (Newgrounds Build)", "Bopeebo (Newgrounds Build)", "dad", [146, 113, 253]],
+		["Bopeebo (OST Version)", "Bopeebo (OST Version)", "dad", [146, 113, 253]],
+		["Bopeebo (Short Version)", "Bopeebo (Short Version)", "dad", [146, 113, 253]],
+		["Fresh", "Fresh", "red-jerma", [226, 0, 0]],
+		["Fresh (Alternate Version)", "Fresh (Alternate Version)", "bomberman", [229, 55, 120]],
+		["Fresh (In-Game Version)", "Fresh (In-Game Version)", "big-chungus", [79, 79, 79]],
+		["Fresh (Itch.io Build)", "Fresh (Itchio Build)", "bus", [199, 79, 79]],
+		["Fresh (OST Version)", "Fresh (OST Version)", "double-dad", [146, 113, 253]],
+		["Fresh (Poop Version)", "Fresh (Poop Version)", "king-harkinian", [146, 113, 253]],
+		["Fresh (Vocal Mix)", "Fresh (Vocal Mix)", "dad", [146, 113, 253]],
+		["Fresh (Week 7 Update)", "Fresh (Week 7 Update)", "plok", [222, 73, 73]],
+		["Dad Battle", "Dad Battle", "dad", [146, 113, 253]],
+		["Dad Battle (In-Game Mix)", "Dad Battle (In-Game Mix)", "invisible", [120, 120, 120]],
+		["Dad Battle (In-Game Version)", "Dad Battle (In-Game Version)", "rapper-mario", [187, 77, 99]],
+		["Dad Battle (JP Version)", "Dad Battle (JP Version)", "ragyo", [255, 230, 230]]
 	],
 	"weekCharacters": [
 		"dad",
