@@ -476,8 +476,10 @@ class PlayState extends MusicBeatState
 					curStage = 'schoolEvil';
 				case 'thorns-(beta-mix)':
 					curStage = 'earthboundEvil';
-				case 'ugh' | 'guns' | 'stress':
+				case 'ugh-(alterneeyyytive-mix)' | 'ugh-(in-game-version)' | 'guns-(short-version)' | 'stress':
 					curStage = 'tank';
+				case 'ugh':
+					curStage = 'homeDepot';
 				default:
 					curStage = 'stage';
 			}
@@ -1161,7 +1163,14 @@ class PlayState extends MusicBeatState
 					var smokeRight:BGSprite = new BGSprite('smokeRight', 1100, -100, 0.4, 0.4, ['SmokeRight'], true);
 					add(smokeRight);
 
-					tankWatchtower = new BGSprite('tankWatchtower', 100, 50, 0.5, 0.5, ['watchtower gradient color']);
+					var watch = '';
+
+					if (SONG.song == 'guns-(short-version)')
+						watch = 'tankWTF';
+					else
+						watch = 'tankWatchtower';
+
+					tankWatchtower = new BGSprite(watch, 100, 50, 0.5, 0.5, ['watchtower gradient color']);
 					add(tankWatchtower);
 				}
 
@@ -1184,10 +1193,85 @@ class PlayState extends MusicBeatState
 				if(!ClientPrefs.lowQuality) foregroundSprites.add(new BGSprite('tank4', 1300, 900, 1.5, 1.5, ['fg']));
 				foregroundSprites.add(new BGSprite('tank5', 1620, 700, 1.5, 1.5, ['fg']));
 				if(!ClientPrefs.lowQuality) foregroundSprites.add(new BGSprite('tank3', 1300, 1200, 3.5, 2.5, ['fg']));
+
+			case 'homeDepot': //Week 7 - Ugh, Guns, Stress
+				var sky:BGSprite = new BGSprite('tankSky', -400, -400, 0, 0);
+				add(sky);
+
+				if(!ClientPrefs.lowQuality)
+				{
+					var clouds:BGSprite = new BGSprite('tankClouds', FlxG.random.int(-700, -100), FlxG.random.int(-20, 20), 0.1, 0.1);
+					clouds.active = true;
+					clouds.velocity.x = FlxG.random.float(5, 15);
+					add(clouds);
+
+					var mountains:BGSprite = new BGSprite('tankMountains', -300, -20, 0.2, 0.2);
+					mountains.setGraphicSize(Std.int(1.2 * mountains.width));
+					mountains.updateHitbox();
+					add(mountains);
+
+					var buildings:BGSprite = new BGSprite('depotBuildings', -200, 0, 0.3, 0.3);
+					buildings.setGraphicSize(Std.int(1.1 * buildings.width));
+					buildings.updateHitbox();
+					add(buildings);
+				}
+
+				var ruins:BGSprite = new BGSprite('depotRuins',-200,0,.35,.35);
+				ruins.setGraphicSize(Std.int(1.1 * ruins.width));
+				ruins.updateHitbox();
+				add(ruins);
+
+				if(!ClientPrefs.lowQuality)
+				{
+					var smokeLeft:BGSprite = new BGSprite('smokeLeft', -200, -100, 0.4, 0.4, ['SmokeBlurLeft'], true);
+					add(smokeLeft);
+					var smokeRight:BGSprite = new BGSprite('smokeRight', 1100, -100, 0.4, 0.4, ['SmokeRight'], true);
+					add(smokeRight);
+
+					tankWatchtower = new BGSprite('depotSign', 100, 50, 0.5, 0.5, ['watchtower gradient color']);
+					add(tankWatchtower);
+				}
+
+				tankGround = new BGSprite('forkliftRolling', 300, 300, 0.5, 0.5, ['BG tank w lighting'], true);
+				add(tankGround);
+
+				var ground:BGSprite = new BGSprite('tankGround', -420, -150);
+				ground.setGraphicSize(Std.int(1.15 * ground.width));
+				ground.updateHitbox();
+				add(ground);
+				moveTank();
+
+				foregroundSprites = new FlxTypedGroup<BGSprite>();
+				foregroundSprites.add(new BGSprite('tank0', -500, 650, 1.7, 1.5, ['fg']));
+				if(!ClientPrefs.lowQuality) foregroundSprites.add(new BGSprite('tank1', -300, 750, 2, 0.2, ['fg']));
+				foregroundSprites.add(new BGSprite('tank2', 450, 940, 1.5, 1.5, ['foreground']));
+				if(!ClientPrefs.lowQuality) foregroundSprites.add(new BGSprite('tank4', 1300, 900, 1.5, 1.5, ['fg']));
+				foregroundSprites.add(new BGSprite('tank5', 1620, 700, 1.5, 1.5, ['fg']));
+				if(!ClientPrefs.lowQuality) foregroundSprites.add(new BGSprite('tank3', 1300, 1200, 3.5, 2.5, ['fg']));
 		}
 
 		switch(Paths.formatToSongPath(SONG.song))
 		{
+			default:
+				GameOverSubstate.loopSoundName = 'gameOver-original';
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-original';
+				GameOverSubstate.endSoundName = 'gameOverEnd-original';
+				
+				switch (ClientPrefs.gameOver)
+				{
+					case 'Ripped':
+						GameOverSubstate.loopSoundName = 'gameOver-ripped';
+						GameOverSubstate.endSoundName = 'gameOverEnd-ripped';
+					
+					case 'Beta Mix':
+						GameOverSubstate.loopSoundName = 'gameOver-beta-mix';
+						GameOverSubstate.deathSoundName = 'fnf_loss_sfx-beta-mix';
+
+					case 'In-Game Version':
+						GameOverSubstate.loopSoundName = 'gameOver-in-game-version';
+						GameOverSubstate.deathSoundName = 'fnf_loss_sfx-in-game-version';
+				}
+
 			case 'stress':
 				GameOverSubstate.characterName = 'bf-holding-gf-dead';
 			case 'spookeez-(beta-mix)':
@@ -1225,6 +1309,32 @@ class PlayState extends MusicBeatState
 				GameOverSubstate.characterName = 'bf-pixel-banned';
 			case 'thorns-(beta-mix)':
 				GameOverSubstate.characterName = 'bf-ness-bot-dead';
+			case 'ugh-(in-game-version)':
+				GameOverSubstate.characterName = 'lady-dead';
+				GameOverSubstate.deathSoundName = 'fnf_loss_maskedwolf';
+				GameOverSubstate.loopSoundName = 'gameOver-maskedwolf';
+			case 'guns-(short-version)':
+				GameOverSubstate.loopSoundName = 'gameOv';
+			case 'game-over-original': //just to make sure
+				GameOverSubstate.loopSoundName = 'gameOver-original';
+				GameOverSubstate.endSoundName = 'gameOverEnd-original';
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-original';
+			case 'game-over-ripped': //just to make sure
+				GameOverSubstate.loopSoundName = 'gameOver-ripped';
+				GameOverSubstate.endSoundName = 'gameOverEnd-ripped';
+			case 'game-over-beta-mix': //just to make sure
+				GameOverSubstate.loopSoundName = 'gameOver-beta-mix';
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-beta-mix';
+				GameOverSubstate.characterName = 'bf-cellphone-dead';
+			case 'game-over-in-game-version': //just to make sure
+				GameOverSubstate.loopSoundName = 'gameOver-in-game-version';
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-in-game-version';
+				GameOverSubstate.characterName = 'quote-dead';
+			case 'game-over-week-2-update':
+				GameOverSubstate.loopSoundName = 'gameOver-week-2-update';
+				GameOverSubstate.endSoundName = 'gameOverEnd-week-2-update';
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-week-2-update';
+				GameOverSubstate.characterName = 'bf-pumpkins-dead';
 			case 'dad-battle':
 				startingSong = false; //this shit never starting
 		}
@@ -1372,7 +1482,7 @@ class PlayState extends MusicBeatState
 			camPos.y += gf.getGraphicMidpoint().y + gf.cameraPosition[1];
 		}
 
-		if(dad.curCharacter.startsWith('gf')) {
+		if(dad.curCharacter.startsWith('gf') || dad.curCharacter.startsWith('curly')) {
 			dad.setPosition(GF_X, GF_Y);
 			if(gf != null)
 				gf.visible = false;
@@ -1684,8 +1794,11 @@ class PlayState extends MusicBeatState
 					if(daSong.startsWith('roses')) FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
-				case 'ugh' | 'guns' | 'stress':
+				case  'guns-(short-version)' | 'stress':
 					tankIntro();
+
+				case 'ugh':
+					startVideo('ughCutscene');
 
 				case 'philly-nice-(in-game-version)':
 					startVideo('ladyTransform');
@@ -2245,7 +2358,7 @@ class PlayState extends MusicBeatState
 					FlxG.sound.play(Paths.sound('killYou'));
 				});
 
-			case 'guns':
+			case 'guns-(short-version)':
 				cutsceneHandler.endTime = 11.5;
 				cutsceneHandler.music = 'DISTORTO';
 				tankman.x += 40;
@@ -3273,7 +3386,7 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			case 'tank':
+			case 'tank' | 'homeDepot':
 				moveTank(elapsed);
 			case 'schoolEvil':
 				if(!ClientPrefs.lowQuality && bgGhouls.animation.curAnim.finished) {
@@ -5443,6 +5556,19 @@ class PlayState extends MusicBeatState
 			resyncVocals();
 		}
 
+		switch (Paths.formatToSongPath(SONG.song))
+		{
+			case 'game-over-ripped':
+				if (curStep == 23)
+					health -= 1000;
+			case 'game-over-original':
+				if (curStep == 33)
+					health -= 1000;
+			case 'game-over-beta-mix' | 'game-over-in-game-version' | 'game-over-week-2-update':
+				if (curStep == 1)
+					health -= 1000;
+		}
+
 		if(curStep == lastStepHit) {
 			return;
 		}
@@ -5527,7 +5653,7 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			case 'tank':
+			case 'tank' | 'homeDepot':
 				if(!ClientPrefs.lowQuality) tankWatchtower.dance();
 				foregroundSprites.forEach(function(spr:BGSprite)
 				{

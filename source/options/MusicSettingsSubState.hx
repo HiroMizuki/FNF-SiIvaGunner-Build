@@ -52,19 +52,33 @@ class MusicSettingsSubState extends BaseOptionsMenu
 			['Original', 'Ripped', 'In-Game Version']);
 		addOption(option);
 
+		var option:Option = new Option('Game Over:',
+			'Changes the tune for the game over screen.\nPress ENTER to preview.',
+			'gameOver',
+			'string',
+			'Ripped',
+			['Original', 'Ripped', 'Beta Mix', 'In-Game Version', 'Week 2 Update']);
+		addOption(option);
+
 		super();
 	}
 
 	override function update(elapsed:Float) {
 		var shit = 'lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-');
 
-		if (curSelected == 1) {
-			PlayState.SONG = Song.loadFromJson(shit, shit);
+		switch (curSelected)
+		{
+			case 1:
+				PlayState.SONG = Song.loadFromJson('lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-'), 'lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-'));
+			case 2:
+				PlayState.SONG = Song.loadFromJson('game-over-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-'), 'game-over-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-'));
+		}
+			
 
-			if(FlxG.keys.justPressed.ENTER) {
-				LoadingState.loadAndSwitchState(new PlayState());
-				PlayState.seenCutscene = false;
-			}
+		if(FlxG.keys.justPressed.ENTER) {
+			LoadingState.loadAndSwitchState(new PlayState());
+			trace(PlayState.SONG);
+			PlayState.seenCutscene = false;
 		}
 
 		super.update(elapsed);

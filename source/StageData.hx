@@ -73,8 +73,10 @@ class StageData {
 					stage = 'schoolEvil';
 				case 'thorns-(beta-mix)':
 					stage = 'earthboundEvil';
-				case 'ugh' | 'guns' | 'stress':
+				case 'ugh-(alterneeyyytive-mix)' | 'ugh-(in-game-version)' | 'guns-(short-version)' | 'stress':
 					stage = 'tank';
+				case 'ugh':
+					stage = 'homeDepot';
 				default:
 					stage = 'stage';
 			}

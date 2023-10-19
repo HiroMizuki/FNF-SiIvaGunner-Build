@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-84,
+				-20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Tankman Idle Dance"
+		},
+		{
+			"offsets": [
+				-82,
+				13
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Tankman UP note instance"
+		},
+		{
+			"offsets": [
+				-83,
+				-53
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Tankman DOWN note instance"
+		},
+		{
+			"offsets": [
+				32,
+				-34
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Tankman Right Note instance"
+		},
+		{
+			"offsets": [
+				-79,
+				-48
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Tankman Note Left instance"
+		},
+		{
+			"offsets": [
+				-23,
+				-28
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "TANKMAN UGH"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/maskedWolf",
+	"position": [
+		0,
+		210
+	],
+	"healthicon": "masked-wolf",
+	"flip_x": true,
+	"healthbar_colors": [
+		89,
+		121,
+		180
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

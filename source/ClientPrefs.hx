@@ -33,6 +33,7 @@ class ClientPrefs {
 	public static var hitsoundVolume:Float = 0;
 	public static var pauseMusic:String = 'Tea Time';
 	public static var lunchbox:String = 'Ripped';
+	public static var gameOver:String = 'Ripped';
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
 	public static var gameplaySettings:Map<String, Dynamic> = [
@@ -132,6 +133,7 @@ class ClientPrefs {
 		FlxG.save.data.hitsoundVolume = hitsoundVolume;
 		FlxG.save.data.pauseMusic = pauseMusic;
 		FlxG.save.data.lunchbox = lunchbox;
+		FlxG.save.data.gameOver = gameOver;
 		FlxG.save.data.checkForUpdates = checkForUpdates;
 		FlxG.save.data.comboStacking = comboStacking;
 	
@@ -251,6 +253,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.lunchbox != null) {
 			lunchbox = FlxG.save.data.lunchbox;
+		}
+		if(FlxG.save.data.gameOver != null) {
+			gameOver = FlxG.save.data.gameOver;
 		}
 		if(FlxG.save.data.gameplaySettings != null)
 		{
