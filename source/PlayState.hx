@@ -464,6 +464,8 @@ class PlayState extends MusicBeatState
 					curStage = 'mallEvil';
 				case 'roses' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version' | 'roses-(itchio-build)':
 					curStage = 'school';
+				case 'roses-(ost-version)':
+					curStage = 'bridge';
 				case 'senpai':
 					curStage = 'beach';
 				case 'senpai-(beta-mix)':
@@ -472,6 +474,8 @@ class PlayState extends MusicBeatState
 					curStage = 'town';
 				case 'thorns':
 					curStage = 'schoolEvil';
+				case 'thorns-(beta-mix)':
+					curStage = 'earthboundEvil';
 				case 'ugh' | 'guns' | 'stress':
 					curStage = 'tank';
 				default:
@@ -1028,7 +1032,71 @@ class PlayState extends MusicBeatState
 					add(bgGirls);
 				}
 
-			case 'schoolEvil': //Week 6 - Thorns
+			case 'bridge': //Week 6 - Roses (OST Version)
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
+				GameOverSubstate.loopSoundName = 'gameOver-pixel';
+				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
+				GameOverSubstate.characterName = 'bf-terraria-pixel-dead';
+
+				var bgSky:BGSprite = new BGSprite('weeb/terrariaSky', 0, 0, 0.1, 0.1);
+				add(bgSky);
+				bgSky.antialiasing = false;
+
+				var repositionShit = -200;
+
+				var bgStreet:BGSprite = new BGSprite('weeb/terrariaGround', repositionShit, 0, 0.95, 0.95);
+				add(bgStreet);
+				bgStreet.antialiasing = false;
+
+				var widShit = Std.int(bgSky.width * 6);
+
+				bgSky.setGraphicSize(widShit);
+				bgStreet.setGraphicSize(widShit);
+
+				bgSky.updateHitbox();
+				bgStreet.updateHitbox();
+
+				if(!ClientPrefs.lowQuality) {
+					bgGirls = new BackgroundGirls(-100, 190);
+					bgGirls.scrollFactor.set(0.9, 0.9);
+
+					bgGirls.setGraphicSize(Std.int(bgGirls.width * daPixelZoom));
+					bgGirls.updateHitbox();
+					add(bgGirls);
+				}
+
+			case 'earthboundEvil': //Week 6 - Thorns
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
+				GameOverSubstate.loopSoundName = 'gameOver-pixel';
+				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
+				GameOverSubstate.characterName = 'bf-pixel-dead';
+
+				/*if(!ClientPrefs.lowQuality) { //Does this even do something?
+					var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
+					var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
+				}*/
+				var posX = 400;
+				var posY = 200;
+				if(!ClientPrefs.lowQuality) {
+					var bg:BGSprite = new BGSprite('weeb/animatedEvilEarthbound', posX, posY, 0.8, 0.9, ['background 2'], true);
+					bg.scale.set(6, 6);
+					bg.antialiasing = false;
+					add(bg);
+
+					bgGhouls = new BGSprite('weeb/bgGhouls', -100, 190, 0.9, 0.9, ['BG freaks glitch instance'], false);
+					bgGhouls.setGraphicSize(Std.int(bgGhouls.width * daPixelZoom));
+					bgGhouls.updateHitbox();
+					bgGhouls.visible = false;
+					bgGhouls.antialiasing = false;
+					add(bgGhouls);
+				} else {
+					var bg:BGSprite = new BGSprite('weeb/animatedEvilEarthbound_low', posX, posY, 0.8, 0.9);
+					bg.scale.set(6, 6);
+					bg.antialiasing = false;
+					add(bg);
+				}
+
+				case 'schoolEvil': //Week 6 - Thorns
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
 				GameOverSubstate.loopSoundName = 'gameOver-pixel';
 				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
@@ -1153,6 +1221,10 @@ class PlayState extends MusicBeatState
 				GameOverSubstate.characterName = 'bf-neko-dead';
 			case 'roses':
 				GameOverSubstate.characterName = 'gm08-pixel-dead';
+			case 'thorns':
+				GameOverSubstate.characterName = 'bf-pixel-banned';
+			case 'thorns-(beta-mix)':
+				GameOverSubstate.characterName = 'bf-ness-bot-dead';
 			case 'dad-battle':
 				startingSong = false; //this shit never starting
 		}
@@ -1237,7 +1309,7 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf-car';
 				case 'mall' | 'mallEvil':
 					gfVersion = 'gf-christmas';
-				case 'school' | 'schoolEvil' | 'beach':
+				case 'school' | 'schoolEvil':
 					gfVersion = 'gf-pixel';
 				case 'tank':
 					gfVersion = 'gf-tankmen';
@@ -1606,8 +1678,9 @@ class PlayState extends MusicBeatState
 							}
 						});
 					});
-				case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'roses' | 'roses-(beta-mix)' | 'thorns' |
-					'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version' | 'roses-(itchio-build)':
+				case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'roses' | 'roses-(beta-mix)' | 'thorns' | 'thorns-(beta-mix)' |
+					'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version' | 'roses-(itchio-build)' |
+					'roses-(ost-version)':
 					if(daSong.startsWith('roses')) FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
 
@@ -1989,7 +2062,14 @@ class PlayState extends MusicBeatState
 		red.scrollFactor.set();
 
 		var senpaiEvil:FlxSprite = new FlxSprite();
-		senpaiEvil.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
+		switch (Paths.formatToSongPath(SONG.song))
+		{
+			case 'thorns':
+				senpaiEvil.frames = Paths.getSparrowAtlas('weeb/gariwaldcrazy');
+
+			case 'thorns-(beta-mix)':
+				senpaiEvil.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
+		}
 		senpaiEvil.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
 		senpaiEvil.setGraphicSize(Std.int(senpaiEvil.width * 6));
 		senpaiEvil.scrollFactor.set();
@@ -1998,11 +2078,14 @@ class PlayState extends MusicBeatState
 		senpaiEvil.x += 300;
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
-		if (songName == 'roses' || songName == 'thorns')
+		var isThorns:Bool = songName.startsWith('thorns');
+		var isRoses:Bool = songName.startsWith('roses');
+
+		if (isRoses || isThorns)
 		{
 			remove(black);
 
-			if (songName == 'thorns')
+			if (isThorns)
 			{
 				add(red);
 				camHUD.visible = false;
@@ -2021,7 +2104,7 @@ class PlayState extends MusicBeatState
 			{
 				if (dialogueBox != null)
 				{
-					if (Paths.formatToSongPath(SONG.song) == 'thorns')
+					if (isThorns)
 					{
 						add(senpaiEvil);
 						senpaiEvil.alpha = 0;
@@ -5451,7 +5534,7 @@ class PlayState extends MusicBeatState
 					spr.dance();
 				});
 
-			case 'school' | 'beach' | 'island':
+			case 'school' | 'beach' | 'island' | 'bridge':
 				if(!ClientPrefs.lowQuality) {
 					bgGirls.dance();
 				}

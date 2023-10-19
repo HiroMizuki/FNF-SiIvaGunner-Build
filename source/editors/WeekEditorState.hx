@@ -298,7 +298,7 @@ class WeekEditorState extends MusicBeatState
 
 		var stringThing:Array<String> = [];
 		for (i in 0...weekFile.songs.length) {
-			stringThing.push(weekFile.songs[i][0]);
+			stringThing.push(weekFile.songsList[i]);
 		}
 
 		txtTracklist.text = '';
@@ -395,8 +395,8 @@ class WeekEditorState extends MusicBeatState
 					} else { //Edit song
 						weekFile.songs[i][0] = splittedText[i];
 						if(weekFile.songs[i][1] == null || weekFile.songs[i][1]) {
-							weekFile.songs[i][1] = 'dad';
-							weekFile.songs[i][2] = [146, 113, 253];
+							weekFile.songs[i][2] = 'dad';
+							weekFile.songs[i][3] = [146, 113, 253];
 						}
 					}
 				}
@@ -594,13 +594,13 @@ class WeekEditorFreeplayState extends MusicBeatState
 
 		for (i in 0...weekFile.songs.length)
 		{
-			var songText:Alphabet = new Alphabet(90, 320, weekFile.songs[i][0], true);
+			var songText:Alphabet = new Alphabet(90, 320, weekFile.songs[i][1], true);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
 			songText.snapToPosition();
 
-			var icon:HealthIcon = new HealthIcon(weekFile.songs[i][1]);
+			var icon:HealthIcon = new HealthIcon(weekFile.songs[i][2]);
 			icon.sprTracker = songText;
 
 			// using a FlxGroup is too much fuss!
@@ -661,7 +661,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 	
 	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
 		if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
-			weekFile.songs[curSelected][1] = iconInputText.text;
+			weekFile.songs[curSelected][2] = iconInputText.text;
 			iconArray[curSelected].changeIcon(iconInputText.text);
 		} else if(id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper)) {
 			if(sender == bgColorStepperR || sender == bgColorStepperG || sender == bgColorStepperB) {
@@ -729,10 +729,10 @@ class WeekEditorFreeplayState extends MusicBeatState
 	}
 
 	function updateBG() {
-		weekFile.songs[curSelected][2][0] = Math.round(bgColorStepperR.value);
-		weekFile.songs[curSelected][2][1] = Math.round(bgColorStepperG.value);
-		weekFile.songs[curSelected][2][2] = Math.round(bgColorStepperB.value);
-		bg.color = FlxColor.fromRGB(weekFile.songs[curSelected][2][0], weekFile.songs[curSelected][2][1], weekFile.songs[curSelected][2][2]);
+		weekFile.songs[curSelected][3][0] = Math.round(bgColorStepperR.value);
+		weekFile.songs[curSelected][3][1] = Math.round(bgColorStepperG.value);
+		weekFile.songs[curSelected][3][2] = Math.round(bgColorStepperB.value);
+		bg.color = FlxColor.fromRGB(weekFile.songs[curSelected][3][0], weekFile.songs[curSelected][3][1], weekFile.songs[curSelected][3][2]);
 	}
 
 	function changeSelection(change:Int = 0) {
@@ -769,9 +769,9 @@ class WeekEditorFreeplayState extends MusicBeatState
 		}
 		trace(weekFile.songs[curSelected]);
 		iconInputText.text = weekFile.songs[curSelected][1];
-		bgColorStepperR.value = Math.round(weekFile.songs[curSelected][2][0]);
-		bgColorStepperG.value = Math.round(weekFile.songs[curSelected][2][1]);
-		bgColorStepperB.value = Math.round(weekFile.songs[curSelected][2][2]);
+		bgColorStepperR.value = Math.round(weekFile.songs[curSelected][3][0]);
+		bgColorStepperG.value = Math.round(weekFile.songs[curSelected][3][1]);
+		bgColorStepperB.value = Math.round(weekFile.songs[curSelected][3][2]);
 		updateBG();
 	}
 

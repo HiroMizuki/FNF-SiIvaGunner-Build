@@ -61,6 +61,8 @@ class StageData {
 					stage = 'mallEvil';
 				case 'roses' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'lunchbox-ripped' | 'lunchbox-original' | 'lunchbox-in-game-version' | 'roses-(itchio-build)':
 					stage = 'school';
+				case 'roses-(ost-version)':
+					stage = 'bridge';
 				case 'senpai':
 					stage = 'beach';
 				case 'senpai-(beta-mix)':
@@ -69,6 +71,8 @@ class StageData {
 					stage = 'town';
 				case 'thorns':
 					stage = 'schoolEvil';
+				case 'thorns-(beta-mix)':
+					stage = 'earthboundEvil';
 				case 'ugh' | 'guns' | 'stress':
 					stage = 'tank';
 				default:

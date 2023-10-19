@@ -16,6 +16,8 @@ class BackgroundGirls extends FlxSprite
 				frames = Paths.getSparrowAtlas('weeb/bgFreaks');
 			case 'senpai-(in-game-version)':
 				frames = Paths.getSparrowAtlas('weeb/bgHypnospace');
+			case 'roses-(ost-version)':
+				frames = Paths.getSparrowAtlas('weeb/terrariaFreaks');
 		}
 
 		swapDanceType();
