@@ -10,6 +10,8 @@ import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 
+using StringTools;
+
 class GameOverSubstate extends MusicBeatSubstate
 {
 	public var boyfriend:Boyfriend;
@@ -21,17 +23,17 @@ class GameOverSubstate extends MusicBeatSubstate
 	var stageSuffix:String = "";
 
 	public static var characterName:String = 'bf-dead';
-	public static var deathSoundName:String = 'fnf_loss_sfx';
-	public static var loopSoundName:String = 'gameOver';
-	public static var endSoundName:String = 'gameOverEnd';
+	public static var deathSoundName:String = 'fnf_loss_sfx-original';
+	public static var loopSoundName:String = 'gameOver-original';
+	public static var endSoundName:String = 'gameOverEnd-original';
 
 	public static var instance:GameOverSubstate;
 
 	public static function resetVariables() {
 		characterName = 'bf-dead';
-		deathSoundName = 'fnf_loss_sfx';
-		loopSoundName = 'gameOver';
-		endSoundName = 'gameOverEnd';
+		deathSoundName = 'fnf_loss_sfx-original';
+		loopSoundName = 'gameOver-original';
+		endSoundName = 'gameOverEnd-original';
 	}
 
 	override function create()
@@ -54,6 +56,19 @@ class GameOverSubstate extends MusicBeatSubstate
 		boyfriend.x += boyfriend.positionArray[0];
 		boyfriend.y += boyfriend.positionArray[1];
 		add(boyfriend);
+
+		switch (ClientPrefs.gameOver)
+		{
+			default:
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-');
+				GameOverSubstate.loopSoundName = 'gameOver-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-');
+				GameOverSubstate.endSoundName = 'gameOverEnd-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-');
+
+			case 'Ripped':
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-original';
+				GameOverSubstate.loopSoundName = 'gameOver-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-');
+				GameOverSubstate.endSoundName = 'gameOverEnd-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-');
+		}
 
 		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 
@@ -83,9 +98,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		}
 
 		if (controls.ACCEPT)
-		{
 			endBullshit();
-		}
 
 		if (controls.BACK)
 		{

@@ -1252,26 +1252,6 @@ class PlayState extends MusicBeatState
 
 		switch(Paths.formatToSongPath(SONG.song))
 		{
-			default:
-				GameOverSubstate.loopSoundName = 'gameOver-original';
-				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-original';
-				GameOverSubstate.endSoundName = 'gameOverEnd-original';
-				
-				switch (ClientPrefs.gameOver)
-				{
-					case 'Ripped':
-						GameOverSubstate.loopSoundName = 'gameOver-ripped';
-						GameOverSubstate.endSoundName = 'gameOverEnd-ripped';
-					
-					case 'Beta Mix':
-						GameOverSubstate.loopSoundName = 'gameOver-beta-mix';
-						GameOverSubstate.deathSoundName = 'fnf_loss_sfx-beta-mix';
-
-					case 'In-Game Version':
-						GameOverSubstate.loopSoundName = 'gameOver-in-game-version';
-						GameOverSubstate.deathSoundName = 'fnf_loss_sfx-in-game-version';
-				}
-
 			case 'stress':
 				GameOverSubstate.characterName = 'bf-holding-gf-dead';
 			case 'spookeez-(beta-mix)':
