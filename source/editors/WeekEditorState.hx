@@ -297,7 +297,7 @@ class WeekEditorState extends MusicBeatState
 		}
 
 		var stringThing:Array<String> = [];
-		for (i in 0...weekFile.songs.length) {
+		for (i in 0...weekFile.songsList.length) {
 			stringThing.push(weekFile.songsList[i]);
 		}
 
@@ -306,8 +306,6 @@ class WeekEditorState extends MusicBeatState
 		{
 			txtTracklist.text += stringThing[i] + '\n';
 		}
-
-		txtTracklist.text = txtTracklist.text.toUpperCase();
 
 		txtTracklist.screenCenter(X);
 		txtTracklist.x -= FlxG.width * 0.35;

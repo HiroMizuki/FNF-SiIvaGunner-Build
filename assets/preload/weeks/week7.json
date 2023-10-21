@@ -1,27 +1,27 @@
 {
-	"songs": [
-		["Ugh", "Ugh", "tankman-worker", [246, 182, 4]],
-		["Ugh (Alterneeyyytive Mix)", "Ugh (Alterneeyyytive Mix)", "psy", [246, 182, 4]],
-		["Ugh (In-Game Version)", "Ugh (In-Game Version)", "masked-wolf", [246, 182, 4]],
-		["Guns (Short Version)", "Guns (Short Version)", "tankman", [246, 182, 4]],
-		["Stress", "Stress", "tankman", [246, 182, 4]]
-	],
+	"storyName": "Tankman",
 	"hideFreeplay": false,
 	"weekBackground": "tank",
-	"weekCharacters": [
-		"tankman",
-		"bf",
-		"gf"
-	],
-	"storyName": "Tankman",
-	"weekName": "Week 7",
+	"weekBefore": "week6",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"hideStoryMode": false,
-	"weekBefore": "week6",
+	"songsList": ["Ugh", "Guns", "Stress"],
 	"startUnlocked": true,
-	"songsList": ["Ugh", "Guns", "Stress"]
+	"weekCharacters": [
+		"tankman",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		["Ugh", "Ugh", "tankman-worker", [255, 142, 24]],
+		["Ugh (Alterneeyyytive Mix)", "Ugh (Alterneeyyytive Mix)", "psy", [66, 222, 255]],
+		["Ugh (In-Game Version)", "Ugh (In-Game Version)", "masked-wolf", [106, 2, 84]],
+		["Guns (Short Version)", "Guns (Short Version)", "tankman", [166, 42, 104]],
+		["Stress", "Stress", "tankman", [206, 182, 4]]
+	],
+	"hideStoryMode": false,
+	"weekName": "Week 7"
 }
