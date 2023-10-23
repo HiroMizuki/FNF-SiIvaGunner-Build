@@ -1,0 +1,23 @@
+{
+	"storyName": "Ridge",
+	"hideFreeplay": false,
+	"weekBackground": "limo",
+	"weekBefore": "test",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"songsList": ["Ridge"],
+	"startUnlocked": true,
+	"weekCharacters": [
+		"mom",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		["Ridge (Unused)", "Ridge (Unused)", "mom", [252, 150, 215]]
+	],
+	"hideStoryMode": false,
+	"weekName": "Ridge"
+}

@@ -456,7 +456,7 @@ class PlayState extends MusicBeatState
 					curStage = 'tyler';
 				case 'pico-(in-game-version)':
 					curStage = 'louvre';
-				case 'milf' | 'milf-(beta-mix)' | 'milf-(short-mix)' | 'milf-(in-game-version)' | 'milf-(jp-version)' | 'milf-(ost-version)' | 'milf-(itchio-build)' | 'satin-panties' | 'satin-panties-(short-version)' | 'satin-panties-(in-game-version)' | 'high' | 'high-(extended-mix)' | 'high-(in-game-version)' | 'high-(jp-version)':
+				case 'milf' | 'milf-(beta-mix)' | 'milf-(short-mix)' | 'milf-(in-game-version)' | 'milf-(jp-version)' | 'milf-(ost-version)' | 'milf-(itchio-build)' | 'satin-panties' | 'satin-panties-(short-version)' | 'satin-panties-(in-game-version)' | 'high' | 'high-(extended-mix)' | 'high-(in-game-version)' | 'high-(jp-version)' | 'ridge-(unused)':
 					curStage = 'limo';
 				case 'cocoa' | 'cocoa-(short-version)' | 'eggnog' | 'eggnog-(short-version)':
 					curStage = 'mall';
@@ -480,6 +480,8 @@ class PlayState extends MusicBeatState
 					curStage = 'tank';
 				case 'ugh':
 					curStage = 'homeDepot';
+				case 'test':
+					curStage = 'wolves';
 				default:
 					curStage = 'stage';
 			}
@@ -536,6 +538,10 @@ class PlayState extends MusicBeatState
 		switch (curStage)
 		{
 			case 'stage': //Week 1
+				var folder = '';
+				if (Paths.formatToSongPath(SONG.song) == 'video-games-(removed)')
+					folder = 'anyway/';
+
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
 
@@ -543,7 +549,7 @@ class PlayState extends MusicBeatState
 				add(scatman);
 				scatman.alpha = 0;
 
-				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
+				var stageFront:BGSprite = new BGSprite(folder + 'stagefront', -650, 600, 0.9, 0.9);
 				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 				stageFront.updateHitbox();
 				add(stageFront);
@@ -551,14 +557,19 @@ class PlayState extends MusicBeatState
 					var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
 					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
 					stageLight.updateHitbox();
+
+					if (Paths.formatToSongPath(SONG.song) != 'video-games-(removed)')
 					add(stageLight);
+					
 					var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
 					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
 					stageLight.updateHitbox();
 					stageLight.flipX = true;
+
+					if (Paths.formatToSongPath(SONG.song) != 'video-games-(removed)')
 					add(stageLight);
 
-					var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
+					var stageCurtains:BGSprite = new BGSprite(folder + 'stagecurtains', -500, -300, 1.3, 1.3);
 					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
 					stageCurtains.updateHitbox();
 					add(stageCurtains);
@@ -589,6 +600,35 @@ class PlayState extends MusicBeatState
 				var bg:BGSprite = new BGSprite('palace/stageback', -600, -200, 0.9, 0.9);
 				add(bg);
 
+				dadbattleSmokes = new FlxSpriteGroup(); //troll'd
+
+			case 'wolves':
+				dadGroup.visible = false;
+
+				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+				add(bg);
+
+				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
+				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+				stageFront.updateHitbox();
+				add(stageFront);
+				if(!ClientPrefs.lowQuality) {
+					var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
+					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
+					stageLight.updateHitbox();
+					add(stageLight);
+					var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
+					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
+					stageLight.updateHitbox();
+					stageLight.flipX = true;
+					add(stageLight);
+				}
+
+				var stageCurtains:BGSprite = new BGSprite('wolves/stagecurtains', -500, -300, 1.3, 1.3);
+				stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+				stageCurtains.updateHitbox();
+				add(stageCurtains);
+				
 				dadbattleSmokes = new FlxSpriteGroup(); //troll'd
 
 			case 'bus': //Week 1 - Fresh (Itch.io Build)
@@ -1295,6 +1335,8 @@ class PlayState extends MusicBeatState
 				GameOverSubstate.loopSoundName = 'gameOver-maskedwolf';
 			case 'guns-(short-version)':
 				GameOverSubstate.loopSoundName = 'gameOv';
+			case 'video-games-(removed)':
+				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-luckyguy';
 			case 'game-over-original': //just to make sure
 				GameOverSubstate.loopSoundName = 'gameOver-original';
 				GameOverSubstate.endSoundName = 'gameOverEnd-original';

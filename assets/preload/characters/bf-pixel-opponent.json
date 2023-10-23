@@ -103,8 +103,8 @@
 	"no_antialiasing": true,
 	"image": "characters/bfPixel",
 	"position": [
-		80,
-		480
+		-100,
+		220
 	],
 	"healthicon": "bf-pixel",
 	"flip_x": true,

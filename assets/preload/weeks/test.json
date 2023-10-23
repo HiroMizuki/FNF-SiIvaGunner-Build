@@ -1,0 +1,24 @@
+{
+	"storyName": "Test",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "week7",
+	"freeplayColor": [
+		66,
+		222,
+		255
+	],
+	"songsList": ["Test"],
+	"startUnlocked": true,
+	"weekCharacters": [
+		"bf",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		["Test", "Test", "bf-pixel", [66, 222, 255]],
+		["Test (In-Game Version)", "Test (In-Game Version)", "bf-pixel", [66, 222, 255]]
+	],
+	"hideStoryMode": false,
+	"weekName": "Test"
+}
