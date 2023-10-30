@@ -2,11 +2,11 @@
 	"storyName": "Video Games",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "ridge",
+	"weekBefore": "test",
 	"freeplayColor": [
-		146,
-		113,
-		253
+		255,
+		102,
+		180
 	],
 	"songsList": ["Video Games"],
 	"startUnlocked": true,
@@ -16,7 +16,7 @@
 		"gf"
 	],
 	"songs": [
-		["Video Games (Removed)", "Video Games (Removed)", "journey", [255, 142, 24]]
+		["Video Games (Removed)", "Video Games (Removed)", "journey", [255, 102, 180]]
 	],
 	"hideStoryMode": false,
 	"weekName": "Video Games"

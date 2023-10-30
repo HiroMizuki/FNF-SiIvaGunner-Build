@@ -1,0 +1,25 @@
+{
+	"storyName": "B-B-BREAK DOWN!",
+	"hideFreeplay": false,
+	"weekBackground": "arcade",
+	"weekBefore": "bonus-week",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		["Wocky", "Wocky", "kapi", [150, 43, 255]],
+		["Beathoven", "Beathoven", "remilla", [255, 56, 56]]
+	],
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songsList": ["Wocky", "Beathoven"],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Arcade Showdown"
+}

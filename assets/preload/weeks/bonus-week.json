@@ -1,0 +1,27 @@
+{
+	"storyName": "BACK ALLEY BLITZ",
+	"hideFreeplay": false,
+	"weekBackground": "alley",
+	"weekBefore": "ridge",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		["Lo-Fight", "Lo-Fight", "whitty", [146, 113, 253]],
+		["Overhead", "Overhead", "whitty", [202, 163, 47]],
+		["Ballistic", "Ballistic", "jacket-crazy", [242, 83, 126]],
+		["Ballistic (Beta Mix)", "Ballistic (Beta Mix)", "whitty-crazy-ballin", [249, 158, 88]]
+	],
+	"weekCharacters": [
+		"whitty",
+		"bf",
+		"gf"
+	],
+	"songsList": ["Lo-Fight", "Overhead", "Ballistic"],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Bonus Week"
+}

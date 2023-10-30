@@ -79,6 +79,10 @@ class StageData {
 					stage = 'homeDepot';
 				case 'test':
 					stage = 'wolves';
+				case 'lo-fight':
+					stage = 'alley';
+				case 'wocky' | 'beathoven':
+					stage = 'arcade';
 				default:
 					stage = 'stage';
 			}
