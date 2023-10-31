@@ -69,7 +69,7 @@ class MusicSettingsSubState extends BaseOptionsMenu
 		switch (curSelected)
 		{
 			case 1:
-				PlayState.SONG = Song.loadFromJson('lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-'), 'lunchbox-' + ClientPrefs.lunchbox.toLowerCase().replace(' ', '-'));
+				PlayState.SONG = Song.loadFromJson(shit, shit);
 			case 2:
 				PlayState.SONG = Song.loadFromJson('game-over-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-'), 'game-over-' + ClientPrefs.gameOver.toLowerCase().replace(' ', '-'));
 		}

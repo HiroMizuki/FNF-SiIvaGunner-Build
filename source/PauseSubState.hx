@@ -23,6 +23,7 @@ class PauseSubState extends MusicBeatSubstate
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Exit to menu'];
 	var curSelected:Int = 0;
 
+	public static var levelString:String = '';
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
@@ -79,26 +80,33 @@ class PauseSubState extends MusicBeatSubstate
 
 		switch (Paths.formatToSongPath(PlayState.SONG.song)) { //SCREW THIS SHIT
 			default:
-				levelInfo.text += PlayState.SONG.song;
+				levelString += PlayState.SONG.song;
 			case 'milf':
-				levelInfo.text += 'M.I.L.F';
+				levelString += 'M.I.L.F';
 			case 'milf-(beta-mix)':
-				levelInfo.text += 'M.I.L.F (Beta Mix)';
+				levelString += 'M.I.L.F (Beta Mix)';
 			case 'milf-(in-game-version)':
-				levelInfo.text += 'M.I.L.F (In-Game Version)';
+				levelString += 'M.I.L.F (In-Game Version)';
 			case 'milf-(itchio-build)':
-				levelInfo.text += 'M.I.L.F (Itch.io Build)';
+				levelString += 'M.I.L.F (Itch.io Build)';
 			case 'milf-(jp-version)':
-				levelInfo.text += 'M.I.L.F (JP Version)';
+				levelString += 'M.I.L.F (JP Version)';
 			case 'milf-(ost-version)':
-				levelInfo.text += 'M.I.L.F (OST Version)';
+				levelString += 'M.I.L.F (OST Version)';
 			case 'fresh-(itchio-build)':
-				levelInfo.text += 'Fresh (Itch.io Build)';
+				levelString += 'Fresh (Itch.io Build)';
 			case 'bopeebo-(itchio-build)':
-				levelInfo.text += 'Bopeebo (Itch.io Build)';
+				levelString += 'Bopeebo (Itch.io Build)';
 			case 'roses-(itchio-build)':
-				levelInfo.text += 'Roses (Itch.io Build)';
+				levelString += 'Roses (Itch.io Build)';
+			case 'lunchbox-original':
+				levelString += 'Lunchbox';
+			case 'lunchbox-in-game-version':
+				levelString += 'Lunchbox (In-Game Version)';
+			case 'lunchbox-ripped':
+				levelString += 'Lunchbox (Ripped)';
 		}
+		levelInfo.text += levelString;
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
 		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;

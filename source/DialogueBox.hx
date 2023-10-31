@@ -35,7 +35,6 @@ class DialogueBox extends FlxSpriteGroup
 	public var skipDialogueThing:Void->Void = null;
 
 	var portraitLeft:FlxSprite;
-	var portraitMiddle:FlxSprite;
 	var portraitRight:FlxSprite;
 
 	var handSelect:FlxSprite;
@@ -91,10 +90,10 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			case 'senpai' | 'senpai-(beta-mix)':
 				hasDialog = true;
-				box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
 				box.animation.addByIndices('normal', 'Text Box Appear instance 1', [4], "", 24);
+				box.setGraphicSize(Std.int(box.width * PlayState.daPixelZoom * 0.9));
 
 			case 'senpai-(in-game-version)':
 				hasDialog = true;
@@ -181,9 +180,6 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		this.dialogueList = dialogueList;
-		
-		if (!hasDialog)
-			return;
 		
 		switch(Paths.formatToSongPath(PlayState.SONG.song)) {
 			default:
@@ -321,6 +317,9 @@ class DialogueBox extends FlxSpriteGroup
 				portraitRight.visible = false;
 		}
 
+		if (!hasDialog)
+			return;
+
 		box.animation.play('normalOpen');			
 		box.updateHitbox();
 		add(box);
@@ -373,7 +372,7 @@ class DialogueBox extends FlxSpriteGroup
 		switch (Paths.formatToSongPath(PlayState.SONG.song)) {
 			case 'roses':
 				portraitLeft.visible = false;
-			case 'thorns':
+			case 'thorns' | 'thorns-(beta-mix)':
 				portraitLeft.visible = false;
 				swagDialogue.color = FlxColor.WHITE;
 				dropText.color = FlxColor.BLACK;
