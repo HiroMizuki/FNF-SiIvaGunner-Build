@@ -88,7 +88,7 @@ class DialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (Paths.formatToSongPath(PlayState.SONG.song))
 		{
-			case 'senpai' | 'senpai-(beta-mix)':
+			case 'senpai' | 'senpai-(beta-mix)' | 'senpai-(in-game-version)' | 'lunchbox-original' | 'lunchbox-ripped' | 'lunchbox-in-game-version':
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('weeb/pixelUI/dialogueBox-pixel');
 				box.animation.addByPrefix('normalOpen', 'Text Box Appear', 24, false);
@@ -182,7 +182,7 @@ class DialogueBox extends FlxSpriteGroup
 		this.dialogueList = dialogueList;
 		
 		switch(Paths.formatToSongPath(PlayState.SONG.song)) {
-			default:
+			case 'senpai' | 'senpai-(beta-mix)' | 'lunchbox-original' | 'lunchbox-ripped' | 'roses' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'roses-(itchio-build)' | 'roses-(ost-version)':
 				hasDialog = true;
 				portraitLeft = new FlxSprite(-20, 40);
 				portraitLeft.frames = Paths.getSparrowAtlas('weeb/senpaiPortrait');
@@ -251,7 +251,7 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		switch(Paths.formatToSongPath(PlayState.SONG.song)) {
-			default:
+			case 'senpai' | 'senpai-(beta-mix)' | 'roses-(beta-mix)' | 'roses-(in-game-version)' | 'roses-(itchio-build)' | 'lunchbox-original' | 'lunchbox-ripped' | 'lunchbox-in-game-version':
 				hasDialog = true;
 				portraitRight = new FlxSprite(0, 40);
 				portraitRight.frames = Paths.getSparrowAtlas('weeb/bfPortrait');
@@ -370,10 +370,7 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		// HARD CODING CUZ IM STUPDI
 		switch (Paths.formatToSongPath(PlayState.SONG.song)) {
-			case 'roses':
-				portraitLeft.visible = false;
 			case 'thorns' | 'thorns-(beta-mix)':
-				portraitLeft.visible = false;
 				swagDialogue.color = FlxColor.WHITE;
 				dropText.color = FlxColor.BLACK;
 		}

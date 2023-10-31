@@ -23,7 +23,6 @@ class PauseSubState extends MusicBeatSubstate
 	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Exit to menu'];
 	var curSelected:Int = 0;
 
-	public static var levelString:String = '';
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
 	var skipTimeText:FlxText;
@@ -80,33 +79,32 @@ class PauseSubState extends MusicBeatSubstate
 
 		switch (Paths.formatToSongPath(PlayState.SONG.song)) { //SCREW THIS SHIT
 			default:
-				levelString += PlayState.SONG.song;
+				levelInfo.text += PlayState.SONG.song;
 			case 'milf':
-				levelString += 'M.I.L.F';
+				levelInfo.text += 'M.I.L.F';
 			case 'milf-(beta-mix)':
-				levelString += 'M.I.L.F (Beta Mix)';
+				levelInfo.text += 'M.I.L.F (Beta Mix)';
 			case 'milf-(in-game-version)':
-				levelString += 'M.I.L.F (In-Game Version)';
+				levelInfo.text += 'M.I.L.F (In-Game Version)';
 			case 'milf-(itchio-build)':
-				levelString += 'M.I.L.F (Itch.io Build)';
+				levelInfo.text += 'M.I.L.F (Itch.io Build)';
 			case 'milf-(jp-version)':
-				levelString += 'M.I.L.F (JP Version)';
+				levelInfo.text += 'M.I.L.F (JP Version)';
 			case 'milf-(ost-version)':
-				levelString += 'M.I.L.F (OST Version)';
+				levelInfo.text += 'M.I.L.F (OST Version)';
 			case 'fresh-(itchio-build)':
-				levelString += 'Fresh (Itch.io Build)';
+				levelInfo.text += 'Fresh (Itch.io Build)';
 			case 'bopeebo-(itchio-build)':
-				levelString += 'Bopeebo (Itch.io Build)';
+				levelInfo.text += 'Bopeebo (Itch.io Build)';
 			case 'roses-(itchio-build)':
-				levelString += 'Roses (Itch.io Build)';
+				levelInfo.text += 'Roses (Itch.io Build)';
 			case 'lunchbox-original':
-				levelString += 'Lunchbox';
+				levelInfo.text += 'Lunchbox';
 			case 'lunchbox-in-game-version':
-				levelString += 'Lunchbox (In-Game Version)';
+				levelInfo.text += 'Lunchbox (In-Game Version)';
 			case 'lunchbox-ripped':
-				levelString += 'Lunchbox (Ripped)';
+				levelInfo.text += 'Lunchbox (Ripped)';
 		}
-		levelInfo.text += levelString;
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
 		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
