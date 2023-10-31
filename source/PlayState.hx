@@ -2890,17 +2890,18 @@ class PlayState extends MusicBeatState
 			case 'lo-fight':
 				trace('funny lo-fight!!!');
 				inCutscene = true;
-				remove(dad);
 				var animation:FlxSprite = new FlxSprite(-290,-100);
 				animation.frames = Paths.getSparrowAtlas('whittyCutscene','bonus');
 				animation.animation.addByPrefix('startup', 'Whitty Cutscene Startup ', 24, false);
-				animation.antialiasing = true;
+				animation.antialiasing = ClientPrefs.globalAntialiasing;
 				add(animation);
 				black2.visible = true;
 				black3.visible = true;
 				add(black2);
 				add(black3);
-				gf.alpha = 0;
+				boyfriendGroup.alpha = 0;
+				gfGroup.alpha = 0;
+				dadGroup.alpha = 0;
 				black2.alpha = 0;
 				black3.alpha = 0;
 				trace(black2);
@@ -2912,6 +2913,7 @@ class PlayState extends MusicBeatState
 				boyfriendCutscene.animation.addByPrefix('beep', 'BF NOTE LEFT', 24, false);
 				boyfriendCutscene.animation.play('idle', true);
 				boyfriendCutscene.animation.curAnim.finish();
+				boyfriendCutscene.antialiasing = ClientPrefs.globalAntialiasing;
 				addBehindBF(boyfriendCutscene);
 
 				FlxG.sound.playMusic(Paths.sound('city'));
@@ -2961,10 +2963,10 @@ class PlayState extends MusicBeatState
 									case 147:
 										camFollow.set(dad.getMidpoint().x + 460, dad.getMidpoint().y - 100);
 										FlxG.sound.play(Paths.sound('beepboop'));
-										boyfriend.playAnim('singLEFT', true);
+										boyfriendCutscene.animation.play('beep');
 									case 154:
-										if (boyfriend.animation.curAnim.name != 'idle')
-											boyfriend.playAnim('idle');
+										if (boyfriendCutscene.animation.curAnim.name != 'idle')
+											boyfriendCutscene.animation.play('idle');
 								}
 							}
 							else
@@ -2984,9 +2986,9 @@ class PlayState extends MusicBeatState
 										black3.alpha = 1;
 										trace('transision ' + black2.visible + ' ' + black3.alpha);
 										remove(animation);
-										dad.alpha = 1;
-										gf.alpha = 1;
-										boyfriend.x -= 314;
+										dadGroup.alpha = 1;
+										gfGroup.alpha = 1;
+										boyfriendGroup.alpha = 1;
 										camHUD.visible = true;
 										tmr.reset(0.3);
 									}

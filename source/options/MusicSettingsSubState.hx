@@ -77,7 +77,7 @@ class MusicSettingsSubState extends BaseOptionsMenu
 
 		if(FlxG.keys.justPressed.ENTER) {
 			LoadingState.loadAndSwitchState(new PlayState());
-			trace(PlayState.SONG);
+			trace(PlayState.SONG.song);
 			PlayState.seenCutscene = false;
 		}
 
